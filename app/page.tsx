@@ -3,34 +3,39 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import ContactForm from "@/components/ContactForm";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const products = [
   {
     name: "Hydrus",
     tagline: "The autonomous underwater drone redefining subsea surveying.",
     href: "/products/hydrus",
+    accent: "#00B89F",
   },
   {
     name: "Subsonus",
     tagline: "Compact acoustic positioning and communication for underwater operations.",
     href: "/products/subsonus",
+    accent: "#1E5FBF",
   },
   {
     name: "Subsonus Tag",
     tagline: "The ultra-long-life transponder built for reliable subsea tracking.",
     href: "/products/subsonus-tag",
+    accent: "#00B89F",
   },
   {
     name: "GNSS Compass",
     tagline: "All-in-one satellite compass delivering precise heading and positioning.",
     href: "/products/gnss-compass",
+    accent: "#1E5FBF",
   },
 ];
 
 const pillars = [
   {
     title: "Expert Distribution",
-    body: "We are the authorised regional partner for Advanced Navigation products across Central Europe, providing access to best-in-class navigation technology.",
+    body: "We are the exclusive authorised regional partner for Advanced Navigation products across Slovakia, the Czech Republic, Austria, and Hungary — providing direct access to best-in-class navigation technology.",
   },
   {
     title: "Local Support",
@@ -38,7 +43,7 @@ const pillars = [
   },
   {
     title: "Proven Technology",
-    body: "Every product we carry is field-tested and trusted by defence, marine, and subsea operators worldwide.",
+    body: "Every product we carry is field-tested and trusted by defence, marine, and subsea operators worldwide. Backed by Advanced Navigation's global expertise.",
   },
 ];
 
@@ -46,35 +51,39 @@ const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
 };
-
 const slideLeft = {
   hidden: { opacity: 0, x: -50 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
 };
-
 const slideRight = {
   hidden: { opacity: 0, x: 50 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
 };
 
+// General-purpose WhatsApp message for home/contact pages
+const HOME_WA_MSG =
+  "Hi, I'm interested in Advanced Navigation products. Could you tell me more?";
+
 export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-[#0A1628] min-h-screen flex items-center overflow-hidden">
+      <section className="relative bg-[#163F7A] min-h-screen flex items-center overflow-hidden">
+        {/* Background grid */}
         <div
-          className="absolute inset-0 opacity-[0.04]"
+          className="absolute inset-0 opacity-[0.06]"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 20% 50%, #2D7DD2 0%, transparent 60%), radial-gradient(circle at 80% 30%, #2D7DD2 0%, transparent 50%)",
+              "linear-gradient(rgba(0,184,159,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(0,184,159,0.8) 1px, transparent 1px)",
+            backgroundSize: "80px 80px",
           }}
         />
+        {/* Radial glow */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0"
           style={{
-            backgroundImage:
-              "linear-gradient(rgba(45,125,210,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(45,125,210,0.5) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
+            background:
+              "radial-gradient(ellipse at 20% 50%, rgba(30,95,191,0.5) 0%, transparent 60%), radial-gradient(ellipse at 80% 30%, rgba(0,184,159,0.15) 0%, transparent 50%)",
           }}
         />
 
@@ -86,25 +95,25 @@ export default function HomePage() {
             className="max-w-3xl"
           >
             <motion.div variants={fadeUp} className="mb-5">
-              <span className="inline-block text-[#2D7DD2] text-xs font-semibold tracking-[0.25em] uppercase border border-[#2D7DD2]/30 px-3 py-1 rounded-full">
-                Central Europe&apos;s Navigation Partner
+              <span className="inline-block text-[#00B89F] text-xs font-semibold tracking-[0.25em] uppercase border border-[#00B89F]/30 px-3 py-1 rounded-full">
+                Authorised Distributor · Slovakia · CZ · AT · HU
               </span>
             </motion.div>
             <motion.h1
               variants={fadeUp}
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6"
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.08] mb-6"
             >
               Precision Navigation.{" "}
-              <span className="text-[#2D7DD2]">Delivered.</span>
+              <span className="text-[#00B89F]">Delivered.</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="text-lg text-white/60 leading-relaxed max-w-xl mb-10">
-              Russ brings world-class underwater and surface navigation technology to Central Europe.
-              Trusted products. Expert support. Based in Bratislava.
+              Advanced Navigation brings world-class underwater, surface, and inertial navigation
+              technology to Central Europe. Trusted technology. Expert support. Based in Bratislava.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
               <Link
                 href="#products"
-                className="px-6 py-3 bg-[#2D7DD2] text-white font-semibold text-sm rounded-lg hover:bg-[#2568b5] transition-colors"
+                className="px-6 py-3 bg-[#1E5FBF] text-white font-semibold text-sm rounded-lg hover:bg-[#163F7A] border border-white/20 transition-colors"
               >
                 Explore Products
               </Link>
@@ -118,6 +127,7 @@ export default function HomePage() {
           </motion.div>
         </div>
 
+        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -143,8 +153,8 @@ export default function HomePage() {
             variants={fadeUp}
             className="text-center mb-16"
           >
-            <span className="text-[#2D7DD2] text-xs font-semibold tracking-[0.2em] uppercase">Advanced Navigation</span>
-            <h2 className="mt-3 text-4xl font-bold text-[#0A1628]">Our Products</h2>
+            <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">Advanced Navigation Portfolio</span>
+            <h2 className="mt-3 text-4xl font-bold text-[#1C2033]">Our Products</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -155,24 +165,31 @@ export default function HomePage() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={i % 2 === 0 ? slideLeft : slideRight}
-                whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(10,22,40,0.12)" }}
+                whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(28,32,51,0.10)" }}
                 className="bg-white rounded-2xl border border-[#E2E8F0] overflow-hidden transition-shadow"
               >
-                <div className="h-40 bg-gradient-to-br from-[#0A1628] to-[#1a3a6e] flex items-center justify-center relative overflow-hidden">
+                <div
+                  className="h-40 flex items-center justify-center relative overflow-hidden"
+                  style={{
+                    background: `linear-gradient(135deg, #163F7A 0%, ${product.accent === "#00B89F" ? "#0D2E5A" : "#163F7A"} 100%)`,
+                  }}
+                >
                   <div
                     className="absolute inset-0 opacity-20"
-                    style={{ backgroundImage: "radial-gradient(circle at 50% 50%, #2D7DD2 0%, transparent 60%)" }}
+                    style={{
+                      backgroundImage: `radial-gradient(circle at 60% 40%, ${product.accent} 0%, transparent 60%)`,
+                    }}
                   />
-                  <span className="text-white/15 text-6xl font-bold tracking-wider uppercase select-none">
+                  <span className="text-white/10 text-7xl font-bold tracking-wider uppercase select-none">
                     {product.name.charAt(0)}
                   </span>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-[#0A1628] mb-2">{product.name}</h3>
+                  <h3 className="text-lg font-bold text-[#1C2033] mb-2">{product.name}</h3>
                   <p className="text-[#64748B] text-sm leading-relaxed mb-5">{product.tagline}</p>
                   <Link
                     href={product.href}
-                    className="inline-flex items-center gap-1.5 text-[#2D7DD2] text-sm font-semibold hover:gap-3 transition-all duration-200"
+                    className="inline-flex items-center gap-1.5 text-[#1E5FBF] text-sm font-semibold hover:gap-3 transition-all duration-200"
                   >
                     Learn More
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -186,7 +203,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why Russ */}
+      {/* Why us */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -196,8 +213,8 @@ export default function HomePage() {
             variants={fadeUp}
             className="text-center mb-16"
           >
-            <span className="text-[#2D7DD2] text-xs font-semibold tracking-[0.2em] uppercase">Our Advantage</span>
-            <h2 className="mt-3 text-4xl font-bold text-[#0A1628]">Why Russ?</h2>
+            <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">Our Advantage</span>
+            <h2 className="mt-3 text-4xl font-bold text-[#1C2033]">Why Work With Us?</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -208,13 +225,11 @@ export default function HomePage() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={i === 0 ? slideLeft : i === 2 ? slideRight : fadeUp}
-                whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(10,22,40,0.08)" }}
+                whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(28,32,51,0.08)" }}
                 className="p-8 rounded-2xl border border-[#E2E8F0] transition-shadow"
               >
-                <div className="w-10 h-10 bg-[#2D7DD2]/10 rounded-lg flex items-center justify-center mb-5">
-                  <div className="w-4 h-4 rounded-full bg-[#2D7DD2]" />
-                </div>
-                <h3 className="text-lg font-bold text-[#0A1628] mb-3">{pillar.title}</h3>
+                <div className="w-10 h-1 bg-[#00B89F] rounded mb-5" />
+                <h3 className="text-lg font-bold text-[#1C2033] mb-3">{pillar.title}</h3>
                 <p className="text-[#64748B] text-sm leading-relaxed">{pillar.body}</p>
               </motion.div>
             ))}
@@ -233,10 +248,10 @@ export default function HomePage() {
               variants={fadeUp}
               className="text-center mb-10"
             >
-              <span className="text-[#2D7DD2] text-xs font-semibold tracking-[0.2em] uppercase">Reach Out</span>
-              <h2 className="mt-3 text-4xl font-bold text-[#0A1628]">Get In Touch</h2>
+              <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">Reach Out</span>
+              <h2 className="mt-3 text-4xl font-bold text-[#1C2033]">Get In Touch</h2>
               <p className="mt-4 text-[#64748B] leading-relaxed">
-                Have a question about a product or want to discuss your project? Reach out and our team will get back to you shortly.
+                Have a question about a product or want to discuss your project? Our team will get back to you shortly.
               </p>
             </motion.div>
             <motion.div
@@ -247,6 +262,7 @@ export default function HomePage() {
             >
               <div className="bg-white rounded-2xl border border-[#E2E8F0] p-8">
                 <ContactForm />
+                <WhatsAppButton message={HOME_WA_MSG} />
               </div>
             </motion.div>
           </div>

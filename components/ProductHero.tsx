@@ -16,17 +16,20 @@ const fadeUp = {
 
 export default function ProductHero({ name, tagline, intro, stats }: ProductHeroProps) {
   return (
-    <section className="relative bg-[#0A1628] py-32 overflow-hidden">
+    <section className="relative bg-[#163F7A] py-32 overflow-hidden">
       <div
-        className="absolute inset-0 opacity-[0.05]"
-        style={{ backgroundImage: "radial-gradient(circle at 60% 40%, #2D7DD2 0%, transparent 60%)" }}
-      />
-      <div
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.06]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(45,125,210,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(45,125,210,0.5) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
+            "linear-gradient(rgba(0,184,159,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(0,184,159,0.6) 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
+        }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at 60% 40%, rgba(30,95,191,0.5) 0%, transparent 60%), radial-gradient(ellipse at 20% 70%, rgba(0,184,159,0.1) 0%, transparent 50%)",
         }}
       />
 
@@ -39,14 +42,14 @@ export default function ProductHero({ name, tagline, intro, stats }: ProductHero
         >
           <motion.span
             variants={fadeUp}
-            className="inline-block text-[#2D7DD2] text-xs font-semibold tracking-[0.25em] uppercase border border-[#2D7DD2]/30 px-3 py-1 rounded-full mb-5"
+            className="inline-block text-[#00B89F] text-xs font-semibold tracking-[0.25em] uppercase border border-[#00B89F]/30 px-3 py-1 rounded-full mb-5"
           >
             Advanced Navigation
           </motion.span>
           <motion.h1 variants={fadeUp} className="text-5xl sm:text-6xl font-bold text-white mb-4">
             {name}
           </motion.h1>
-          <motion.p variants={fadeUp} className="text-2xl text-[#2D7DD2] font-medium mb-6">
+          <motion.p variants={fadeUp} className="text-2xl text-[#00B89F] font-medium mb-6">
             {tagline}
           </motion.p>
           <motion.p variants={fadeUp} className="text-white/60 leading-relaxed text-lg max-w-2xl">
@@ -65,7 +68,7 @@ export default function ProductHero({ name, tagline, intro, stats }: ProductHero
               <motion.div
                 key={stat.label}
                 variants={fadeUp}
-                className="bg-[#0A1628] px-6 py-6 text-center"
+                className="bg-[#163F7A] px-6 py-6 text-center"
               >
                 <div className="text-2xl sm:text-3xl font-bold text-white">{stat.value}</div>
                 <div className="text-white/40 text-xs mt-1 uppercase tracking-wider">{stat.label}</div>

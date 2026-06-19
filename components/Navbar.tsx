@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
@@ -13,11 +14,30 @@ const products = [
   { name: "GNSS Compass", href: "/products/gnss-compass" },
 ];
 
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
-];
+function NavLogo() {
+  const [imgError, setImgError] = useState(false);
+
+  if (imgError) {
+    return (
+      <div className="flex flex-col leading-none select-none">
+        <span className="text-white font-bold text-sm tracking-[0.18em] uppercase">ADVANCED</span>
+        <span className="text-[#00B89F] font-bold text-sm tracking-[0.18em] uppercase">NAVIGATION</span>
+      </div>
+    );
+  }
+
+  return (
+    <Image
+      src="/images/logo/logo.png"
+      alt="Advanced Navigation"
+      width={160}
+      height={40}
+      className="h-8 w-auto object-contain"
+      onError={() => setImgError(true)}
+      priority
+    />
+  );
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -48,29 +68,29 @@ export default function Navbar() {
     setProductsOpen(false);
   }, [pathname]);
 
+  const isActive = (href: string) => pathname === href;
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#0A1628]/95 backdrop-blur-md shadow-lg"
-          : "bg-[#0A1628]"
+          ? "bg-[#163F7A]/97 backdrop-blur-md shadow-lg"
+          : "bg-[#163F7A]"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className="text-white font-bold text-xl tracking-[0.2em] uppercase">
-              RUSS
-            </span>
+            <NavLogo />
           </Link>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
             <Link
               href="/"
-              className={`nav-link text-sm font-medium transition-colors ${
-                pathname === "/" ? "text-[#2D7DD2]" : "text-white/80 hover:text-white"
+              className={`text-sm font-medium transition-colors ${
+                isActive("/") ? "text-[#00B89F]" : "text-white/80 hover:text-white"
               }`}
             >
               Home
@@ -102,7 +122,7 @@ export default function Navbar() {
                       <Link
                         key={p.href}
                         href={p.href}
-                        className="block px-4 py-2.5 text-sm text-[#0A1628] hover:bg-[#F8FAFC] hover:text-[#2D7DD2] transition-colors"
+                        className="block px-4 py-2.5 text-sm text-[#1C2033] hover:bg-[#F8FAFC] hover:text-[#1E5FBF] transition-colors"
                       >
                         {p.name}
                       </Link>
@@ -115,7 +135,7 @@ export default function Navbar() {
             <Link
               href="/about"
               className={`text-sm font-medium transition-colors ${
-                pathname === "/about" ? "text-[#2D7DD2]" : "text-white/80 hover:text-white"
+                isActive("/about") ? "text-[#00B89F]" : "text-white/80 hover:text-white"
               }`}
             >
               About
@@ -124,7 +144,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               className={`text-sm font-medium transition-colors ${
-                pathname === "/contact" ? "text-[#2D7DD2]" : "text-white/80 hover:text-white"
+                isActive("/contact") ? "text-[#00B89F]" : "text-white/80 hover:text-white"
               }`}
             >
               Contact
@@ -132,7 +152,7 @@ export default function Navbar() {
 
             <Link
               href="/contact"
-              className="ml-2 px-4 py-2 bg-[#2D7DD2] text-white text-sm font-medium rounded-lg hover:bg-[#2568b5] transition-colors"
+              className="ml-2 px-4 py-2 bg-[#1E5FBF] text-white text-sm font-semibold rounded-lg hover:bg-[#163F7A] border border-white/20 transition-colors"
             >
               Get In Touch
             </Link>
@@ -157,13 +177,12 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-[#0A1628] border-t border-white/10 overflow-hidden"
+            className="md:hidden bg-[#163F7A] border-t border-white/10 overflow-hidden"
           >
             <div className="px-4 py-4 space-y-1">
               <Link href="/" className="block px-3 py-2 text-white/80 hover:text-white text-sm font-medium rounded">
                 Home
               </Link>
-
               <div>
                 <button
                   onClick={() => setMobileProductsOpen((v) => !v)}
@@ -186,7 +205,6 @@ export default function Navbar() {
                   </div>
                 )}
               </div>
-
               <Link href="/about" className="block px-3 py-2 text-white/80 hover:text-white text-sm font-medium rounded">
                 About
               </Link>
@@ -196,7 +214,7 @@ export default function Navbar() {
               <div className="pt-2">
                 <Link
                   href="/contact"
-                  className="block px-4 py-2.5 bg-[#2D7DD2] text-white text-sm font-medium rounded-lg text-center"
+                  className="block px-4 py-2.5 bg-[#1E5FBF] text-white text-sm font-semibold rounded-lg text-center"
                 >
                   Get In Touch
                 </Link>

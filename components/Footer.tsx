@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const products = [
   { name: "Hydrus", href: "/products/hydrus" },
@@ -7,24 +8,36 @@ const products = [
   { name: "GNSS Compass", href: "/products/gnss-compass" },
 ];
 
+// Email is TBC — placeholder only, swap when confirmed
+const EMAIL_PLACEHOLDER = "info@advancednavigation.sk";
+
+function FooterLogo() {
+  return (
+    <div className="flex flex-col leading-none select-none">
+      <span className="text-white font-bold text-sm tracking-[0.18em] uppercase">ADVANCED</span>
+      <span className="text-[#00B89F] font-bold text-sm tracking-[0.18em] uppercase">NAVIGATION</span>
+    </div>
+  );
+}
+
 export default function Footer() {
   return (
-    <footer className="bg-[#0A1628] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-[#163F7A] text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="md:col-span-1">
-            <span className="text-white font-bold text-xl tracking-[0.2em] uppercase">RUSS</span>
-            <p className="mt-3 text-white/50 text-sm leading-relaxed">
-              Advanced navigation technology for Central Europe.
+            <FooterLogo />
+            <p className="mt-4 text-white/50 text-sm leading-relaxed">
+              Exclusive distributor of Advanced Navigation technology across Slovakia,
+              Czech Republic, Austria &amp; Hungary.
             </p>
-            <p className="mt-2 text-white/40 text-xs">Bratislava, Slovakia</p>
           </div>
 
           {/* Products */}
           <div>
-            <h3 className="text-white/80 text-xs font-semibold uppercase tracking-widest mb-4">Products</h3>
-            <ul className="space-y-2">
+            <h3 className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-4">Products</h3>
+            <ul className="space-y-2.5">
               {products.map((p) => (
                 <li key={p.href}>
                   <Link href={p.href} className="text-white/50 hover:text-white text-sm transition-colors">
@@ -37,8 +50,8 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-white/80 text-xs font-semibold uppercase tracking-widest mb-4">Company</h3>
-            <ul className="space-y-2">
+            <h3 className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-4">Company</h3>
+            <ul className="space-y-2.5">
               <li><Link href="/" className="text-white/50 hover:text-white text-sm transition-colors">Home</Link></li>
               <li><Link href="/about" className="text-white/50 hover:text-white text-sm transition-colors">About</Link></li>
               <li><Link href="/contact" className="text-white/50 hover:text-white text-sm transition-colors">Contact</Link></li>
@@ -47,24 +60,31 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-white/80 text-xs font-semibold uppercase tracking-widest mb-4">Contact</h3>
-            <ul className="space-y-2 text-sm text-white/50">
-              <li>Bratislava, Slovakia</li>
+            <h3 className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-4">Contact</h3>
+            <ul className="space-y-2.5 text-sm">
+              <li className="text-white/50 leading-snug">
+                Mrázová 11, Rača<br />831 06 Bratislava, Slovakia
+              </li>
               <li>
-                <a href="mailto:info@russ.sk" className="hover:text-white transition-colors">
-                  info@russ.sk
+                <a href={`tel:+421949225542`} className="text-white/50 hover:text-white transition-colors">
+                  +421 949 225 542
                 </a>
               </li>
-              <li className="text-white/30 text-xs">+421 (TBC)</li>
+              <li>
+                {/* Email TBC — placeholder */}
+                <a href={`mailto:${EMAIL_PLACEHOLDER}`} className="text-white/50 hover:text-white transition-colors">
+                  {EMAIL_PLACEHOLDER}
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-2">
+        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-2">
           <p className="text-white/30 text-xs">
-            © {new Date().getFullYear()} Russ. All rights reserved.
+            © {new Date().getFullYear()} Advanced Navigation Slovakia. All rights reserved.
           </p>
-          <p className="text-white/20 text-xs">Bratislava, Slovakia</p>
+          <p className="text-white/20 text-xs">Bratislava, Slovakia · Authorised Distributor</p>
         </div>
       </div>
     </footer>

@@ -28,11 +28,11 @@ export default function FeatureCard({ title, body, index }: FeatureCardProps) {
       className="p-8 rounded-2xl border border-[#E2E8F0] bg-white transition-shadow"
     >
       <div className="flex items-start gap-4">
-        <div className="w-8 h-8 rounded-lg bg-[#2D7DD2] flex items-center justify-center shrink-0 mt-0.5">
+        <div className="w-8 h-8 rounded-lg bg-[#1E5FBF] flex items-center justify-center shrink-0 mt-0.5">
           <span className="text-white text-xs font-bold">{index + 1}</span>
         </div>
         <div>
-          <h3 className="text-base font-bold text-[#0A1628] mb-2">{title}</h3>
+          <h3 className="text-base font-bold text-[#1C2033] mb-2">{title}</h3>
           <p className="text-[#64748B] text-sm leading-relaxed">{body}</p>
         </div>
       </div>

@@ -2,17 +2,25 @@
 @import "tailwindcss";
 
 :root {
-  --navy: #0A1628;
-  --blue: #2D7DD2;
+  --primary: #1E5FBF;
+  --primary-dark: #163F7A;
+  --primary-light: #2D7DD2;
+  --teal: #00B89F;
+  --teal-dark: #009B86;
+  --charcoal: #1C2033;
   --slate: #64748B;
   --white: #FFFFFF;
   --light-bg: #F8FAFC;
   --border: #E2E8F0;
+  --whatsapp: #25D366;
 }
 
 @theme inline {
-  --color-navy: #0A1628;
-  --color-blue: #2D7DD2;
+  --color-primary: #1E5FBF;
+  --color-primary-dark: #163F7A;
+  --color-teal: #00B89F;
+  --color-teal-dark: #009B86;
+  --color-charcoal: #1C2033;
   --color-slate: #64748B;
   --color-light-bg: #F8FAFC;
   --color-border: #E2E8F0;
@@ -29,7 +37,7 @@ html {
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: #FFFFFF;
-  color: #0A1628;
+  color: #1C2033;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
