@@ -4,9 +4,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import ProductHero from "@/components/ProductHero";
 import ProductGallery from "@/components/ProductGallery";
+import FeatureVideo from "@/components/FeatureVideo";
 import ContactForm from "@/components/ContactForm";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import type { ProductImage } from "@/lib/getProductImages";
+import type { HydrusVideos } from "@/lib/getHydrusVideos";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -95,7 +97,7 @@ const specs = [
   { label: "Lighting", value: "5,000 Lumen" },
 ];
 
-export default function HydrusClient({ images }: { images: ProductImage[] }) {
+export default function HydrusClient({ images, videos }: { images: ProductImage[]; videos: HydrusVideos }) {
   return (
     <>
       <ProductHero
@@ -126,29 +128,29 @@ export default function HydrusClient({ images }: { images: ProductImage[] }) {
                 complete with obstacle detection and collision avoidance.
               </p>
             </motion.div>
+            {/* Video: "Truly Autonomous" — first mp4 found in public/videos/hydrus/ */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={slideRight}
-              className="h-56 rounded-2xl bg-gradient-to-br from-[#163F7A] to-[#0D2E5A] flex items-center justify-center relative overflow-hidden"
+              className="h-56 rounded-2xl overflow-hidden relative bg-gradient-to-br from-[#163F7A] to-[#0D2E5A]"
             >
-              <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 50% 50%, #00B89F 0%, transparent 60%)" }} />
-              <span className="text-white/10 text-8xl font-bold">DVL</span>
+              <FeatureVideo src={videos.autonomous} label="DVL" />
             </motion.div>
           </div>
 
           {/* Stunning Imagery */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Video: "Stunning Imagery" — second mp4 found in public/videos/hydrus/ */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={slideLeft}
-              className="h-56 rounded-2xl bg-gradient-to-br from-[#00B89F]/20 to-[#163F7A] flex items-center justify-center relative overflow-hidden order-last lg:order-first"
+              className="h-56 rounded-2xl overflow-hidden relative bg-gradient-to-br from-[#00B89F]/20 to-[#163F7A] order-last lg:order-first"
             >
-              <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 40% 60%, #00B89F 0%, transparent 60%)" }} />
-              <span className="text-white/10 text-8xl font-bold">4K</span>
+              <FeatureVideo src={videos.imagery} label="4K" />
             </motion.div>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={slideRight}>
               <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">Imaging</span>
