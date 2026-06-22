@@ -2,8 +2,14 @@
 
 import { motion } from "framer-motion";
 import ProductHero from "@/components/ProductHero";
+import ProductGallery from "@/components/ProductGallery";
 import ContactForm from "@/components/ContactForm";
 import WhatsAppButton from "@/components/WhatsAppButton";
+
+const gallery = Array.from({ length: 9 }, (_, i) => ({
+  src: `/images/gnss-compass/gnss-compass-${String(i + 1).padStart(2, "0")}.jpg`,
+  alt: `GNSS Compass — image ${i + 1}`,
+}));
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -154,6 +160,8 @@ export default function GnssCompassClient() {
           </motion.div>
         </div>
       </section>
+
+      <ProductGallery images={gallery} productName="GNSS Compass" />
 
       {/* CTA */}
       <section className="py-24 bg-[#F8FAFC]">

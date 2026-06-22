@@ -2,8 +2,14 @@
 
 import { motion } from "framer-motion";
 import ProductHero from "@/components/ProductHero";
+import ProductGallery from "@/components/ProductGallery";
 import ContactForm from "@/components/ContactForm";
 import WhatsAppButton from "@/components/WhatsAppButton";
+
+const gallery = Array.from({ length: 11 }, (_, i) => ({
+  src: `/images/subsonus/subsonus-${String(i + 1).padStart(2, "0")}.jpg`,
+  alt: `Subsonus USBL — image ${i + 1}`,
+}));
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -162,6 +168,8 @@ export default function SubsonusClient() {
           </motion.div>
         </div>
       </section>
+
+      <ProductGallery images={gallery} productName="Subsonus" />
 
       {/* CTA */}
       <section className="py-24 bg-[#F8FAFC]">

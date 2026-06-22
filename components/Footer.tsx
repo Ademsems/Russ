@@ -84,7 +84,17 @@ export default function Footer() {
           <p className="text-white/30 text-xs">
             © {new Date().getFullYear()} Advanced Navigation Slovakia. All rights reserved.
           </p>
-          <p className="text-white/20 text-xs">Bratislava, Slovakia · Authorised Distributor</p>
+          <p className="text-white/20 text-xs">
+            Powered by{" "}
+            <a
+              href="https://www.dunajmedia.sk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white/50 transition-colors underline underline-offset-2"
+            >
+              DunajMedia
+            </a>
+          </p>
         </div>
       </div>
     </footer>

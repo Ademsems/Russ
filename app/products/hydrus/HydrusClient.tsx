@@ -3,8 +3,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import ProductHero from "@/components/ProductHero";
+import ProductGallery from "@/components/ProductGallery";
 import ContactForm from "@/components/ContactForm";
 import WhatsAppButton from "@/components/WhatsAppButton";
+
+const gallery = Array.from({ length: 16 }, (_, i) => ({
+  src: `/images/hydrus/hydrus-${String(i + 1).padStart(2, "0")}.jpg`,
+  alt: `Hydrus AUV — image ${i + 1}`,
+}));
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -267,6 +273,8 @@ export default function HydrusClient() {
           </motion.div>
         </div>
       </section>
+
+      <ProductGallery images={gallery} productName="Hydrus" />
 
       {/* CTA */}
       <section className="py-24 bg-[#F8FAFC]">
