@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HydrusClient from "./HydrusClient";
+import { getProductImages } from "@/lib/getProductImages";
 
 export const metadata: Metadata = {
   title: "Hydrus — Autonomous Underwater Vehicle",
@@ -8,5 +9,6 @@ export const metadata: Metadata = {
 };
 
 export default function HydrusPage() {
-  return <HydrusClient />;
+  const images = getProductImages("hydrus", "Hydrus AUV");
+  return <HydrusClient images={images} />;
 }

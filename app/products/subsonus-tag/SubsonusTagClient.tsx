@@ -5,11 +5,7 @@ import ProductHero from "@/components/ProductHero";
 import ProductGallery from "@/components/ProductGallery";
 import ContactForm from "@/components/ContactForm";
 import WhatsAppButton from "@/components/WhatsAppButton";
-
-const gallery = Array.from({ length: 10 }, (_, i) => ({
-  src: `/images/subsonus-tag/subsonus-tag-${String(i + 1).padStart(2, "0")}.jpg`,
-  alt: `Subsonus Tag — image ${i + 1}`,
-}));
+import type { ProductImage } from "@/lib/getProductImages";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -58,7 +54,7 @@ const specs = [
 
 const applications = ["Diver tracking", "ROV tracking", "Subsea asset tracking", "Net tracking"];
 
-export default function SubsonusTagClient() {
+export default function SubsonusTagClient({ images }: { images: ProductImage[] }) {
   return (
     <>
       <ProductHero
@@ -137,7 +133,7 @@ export default function SubsonusTagClient() {
         </div>
       </section>
 
-      <ProductGallery images={gallery} productName="Subsonus Tag" />
+      <ProductGallery images={images} productName="Subsonus Tag" />
 
       {/* CTA */}
       <section className="py-24 bg-[#F8FAFC]">

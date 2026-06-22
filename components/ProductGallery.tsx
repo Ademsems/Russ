@@ -17,6 +17,8 @@ const fadeUp = {
 export default function ProductGallery({ images, productName }: ProductGalleryProps) {
   const [lightbox, setLightbox] = useState<number | null>(null);
 
+  if (images.length === 0) return null;
+
   const prev = () =>
     setLightbox((i) => (i === null ? null : (i - 1 + images.length) % images.length));
   const next = () =>

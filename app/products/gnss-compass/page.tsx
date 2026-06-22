@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import GnssCompassClient from "./GnssCompassClient";
+import { getProductImages } from "@/lib/getProductImages";
 
 export const metadata: Metadata = {
   title: "GNSS Compass — Precision Navigation System",
@@ -8,5 +9,6 @@ export const metadata: Metadata = {
 };
 
 export default function GnssCompassPage() {
-  return <GnssCompassClient />;
+  const images = getProductImages("gnss-compass", "GNSS Compass");
+  return <GnssCompassClient images={images} />;
 }

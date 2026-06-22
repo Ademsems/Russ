@@ -6,11 +6,7 @@ import ProductHero from "@/components/ProductHero";
 import ProductGallery from "@/components/ProductGallery";
 import ContactForm from "@/components/ContactForm";
 import WhatsAppButton from "@/components/WhatsAppButton";
-
-const gallery = Array.from({ length: 16 }, (_, i) => ({
-  src: `/images/hydrus/hydrus-${String(i + 1).padStart(2, "0")}.jpg`,
-  alt: `Hydrus AUV — image ${i + 1}`,
-}));
+import type { ProductImage } from "@/lib/getProductImages";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -99,7 +95,7 @@ const specs = [
   { label: "Lighting", value: "5,000 Lumen" },
 ];
 
-export default function HydrusClient() {
+export default function HydrusClient({ images }: { images: ProductImage[] }) {
   return (
     <>
       <ProductHero
@@ -274,7 +270,7 @@ export default function HydrusClient() {
         </div>
       </section>
 
-      <ProductGallery images={gallery} productName="Hydrus" />
+      <ProductGallery images={images} productName="Hydrus" />
 
       {/* CTA */}
       <section className="py-24 bg-[#F8FAFC]">

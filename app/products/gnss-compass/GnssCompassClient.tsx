@@ -5,11 +5,7 @@ import ProductHero from "@/components/ProductHero";
 import ProductGallery from "@/components/ProductGallery";
 import ContactForm from "@/components/ContactForm";
 import WhatsAppButton from "@/components/WhatsAppButton";
-
-const gallery = Array.from({ length: 9 }, (_, i) => ({
-  src: `/images/gnss-compass/gnss-compass-${String(i + 1).padStart(2, "0")}.jpg`,
-  alt: `GNSS Compass — image ${i + 1}`,
-}));
+import type { ProductImage } from "@/lib/getProductImages";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -58,7 +54,7 @@ const specs = [
 
 const applications = ["Marine", "Autonomous agriculture", "Hydrography", "Antenna targeting"];
 
-export default function GnssCompassClient() {
+export default function GnssCompassClient({ images }: { images: ProductImage[] }) {
   return (
     <>
       <ProductHero
@@ -161,7 +157,7 @@ export default function GnssCompassClient() {
         </div>
       </section>
 
-      <ProductGallery images={gallery} productName="GNSS Compass" />
+      <ProductGallery images={images} productName="GNSS Compass" />
 
       {/* CTA */}
       <section className="py-24 bg-[#F8FAFC]">
