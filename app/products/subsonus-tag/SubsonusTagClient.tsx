@@ -54,11 +54,12 @@ const specs = [
 
 const applications = ["Diver tracking", "ROV tracking", "Subsea asset tracking", "Net tracking"];
 
-export default function SubsonusTagClient({ images }: { images: ProductImage[] }) {
+export default function SubsonusTagClient({ images, heroImage }: { images: ProductImage[]; heroImage?: string | null }) {
   return (
     <>
       <ProductHero
         name="Subsonus Tag"
+        heroImage={heroImage}
         tagline="Track Anything. Anywhere Underwater."
         intro="Subsonus Tag is a battery-powered acoustic positioning transponder that operates with the Subsonus USBL. It features an integrated battery, wireless charging, and a pressure-tolerant display, with ultra-low-power consumption enabling up to 18 months of operation on a single charge. ITAR-free."
         stats={[

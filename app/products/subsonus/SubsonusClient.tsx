@@ -62,11 +62,12 @@ const specs = [
 
 const applications = ["AUVs", "ROVs", "Subsea surveying", "Diver tracking"];
 
-export default function SubsonusClient({ images }: { images: ProductImage[] }) {
+export default function SubsonusClient({ images, heroImage }: { images: ProductImage[]; heroImage?: string | null }) {
   return (
     <>
       <ProductHero
         name="Subsonus"
+        heroImage={heroImage}
         tagline="Know Exactly Where They Are."
         intro="Subsonus is a next-generation USBL/INS that delivers high-accuracy position, velocity, and heading at depths of up to 1,000 metres."
         stats={[

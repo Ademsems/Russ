@@ -54,11 +54,12 @@ const specs = [
 
 const applications = ["Marine", "Autonomous agriculture", "Hydrography", "Antenna targeting"];
 
-export default function GnssCompassClient({ images }: { images: ProductImage[] }) {
+export default function GnssCompassClient({ images, heroImage }: { images: ProductImage[]; heroImage?: string | null }) {
   return (
     <>
       <ProductHero
         name="GNSS Compass"
+        heroImage={heroImage}
         tagline="Precision Heading. Anywhere on Earth."
         intro="The GNSS Compass is a plug-and-play GNSS/INS navigation and heading solution. It delivers accurate dual-antenna GPS-based heading immune to magnetic interference and can maintain accurate heading through GNSS outages of up to 20 minutes. Features high-accuracy 1cm RTK positioning and is plug-and-play with NMEA 0183, NMEA 2000, and Ethernet interfaces. ITAR-free."
         stats={[

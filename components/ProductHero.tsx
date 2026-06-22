@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 interface ProductHeroProps {
@@ -7,6 +8,7 @@ interface ProductHeroProps {
   tagline: string;
   intro: string;
   stats?: { label: string; value: string }[];
+  heroImage?: string | null;
 }
 
 const fadeUp = {
@@ -14,9 +16,26 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
 };
 
-export default function ProductHero({ name, tagline, intro, stats }: ProductHeroProps) {
+export default function ProductHero({ name, tagline, intro, stats, heroImage }: ProductHeroProps) {
   return (
     <section className="relative bg-[#163F7A] py-32 overflow-hidden">
+      {/* Hero background image (if present) */}
+      {heroImage && (
+        <>
+          <Image
+            src={heroImage}
+            alt={`${name} hero`}
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+          {/* Navy overlay so text stays readable */}
+          <div className="absolute inset-0 bg-[#163F7A]/75" />
+        </>
+      )}
+
+      {/* Grid pattern */}
       <div
         className="absolute inset-0 opacity-[0.06]"
         style={{
@@ -25,6 +44,7 @@ export default function ProductHero({ name, tagline, intro, stats }: ProductHero
           backgroundSize: "80px 80px",
         }}
       />
+      {/* Radial glow */}
       <div
         className="absolute inset-0"
         style={{
@@ -68,7 +88,7 @@ export default function ProductHero({ name, tagline, intro, stats }: ProductHero
               <motion.div
                 key={stat.label}
                 variants={fadeUp}
-                className="bg-[#163F7A] px-6 py-6 text-center"
+                className="bg-[#163F7A]/80 px-6 py-6 text-center backdrop-blur-sm"
               >
                 <div className="text-2xl sm:text-3xl font-bold text-white">{stat.value}</div>
                 <div className="text-white/40 text-xs mt-1 uppercase tracking-wider">{stat.label}</div>

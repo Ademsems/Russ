@@ -97,13 +97,14 @@ const specs = [
   { label: "Lighting", value: "5,000 Lumen" },
 ];
 
-export default function HydrusClient({ images, videos }: { images: ProductImage[]; videos: HydrusVideos }) {
+export default function HydrusClient({ images, videos, heroImage }: { images: ProductImage[]; videos: HydrusVideos; heroImage?: string | null }) {
   return (
     <>
       <ProductHero
         name="Hydrus"
         tagline="The Drone Revolution, Underwater."
         intro="Hydrus is a micro hovering Autonomous Underwater Vehicle (AUV) that makes underwater surveying easy and affordable. Designed for anyone who needs underwater data — not just specialists — Hydrus brings the drone revolution beneath the surface."
+        heroImage={heroImage}
         stats={[
           { value: "300m", label: "Depth Rating" },
           { value: "4K@60", label: "Video" },

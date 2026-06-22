@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SubsonusClient from "./SubsonusClient";
 import { getProductImages } from "@/lib/getProductImages";
+import { getHeroImage } from "@/lib/getHeroImage";
 
 export const metadata: Metadata = {
   title: "Subsonus — Underwater Acoustic Positioning",
@@ -10,5 +11,6 @@ export const metadata: Metadata = {
 
 export default function SubsonusPage() {
   const images = getProductImages("subsonus", "Subsonus USBL");
-  return <SubsonusClient images={images} />;
+  const heroImage = getHeroImage("subsonus");
+  return <SubsonusClient images={images} heroImage={heroImage} />;
 }
