@@ -57,7 +57,7 @@ export default function ContactClient() {
       </section>
 
       {/* Contact body */}
-      <section className="py-24 bg-[#F8FAFC]">
+      <section className="py-24 bg-[#F8FAFC] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             {/* Info */}

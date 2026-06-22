@@ -144,7 +144,7 @@ export default function HomePage() {
       </section>
 
       {/* Products */}
-      <section id="products" className="py-24 bg-[#F8FAFC]">
+      <section id="products" className="py-24 bg-[#F8FAFC] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -204,7 +204,7 @@ export default function HomePage() {
       </section>
 
       {/* Why us */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -238,7 +238,7 @@ export default function HomePage() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-24 bg-[#F8FAFC]">
+      <section id="contact" className="py-24 bg-[#F8FAFC] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto">
             <motion.div

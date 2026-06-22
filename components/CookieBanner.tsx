@@ -36,25 +36,30 @@ export default function CookieBanner() {
           transition={{ duration: 0.3, ease: "easeOut" as const }}
           className="fixed bottom-0 left-0 right-0 z-[100] bg-[#1C2033] border-t border-white/10 shadow-2xl"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <p className="text-white/70 text-sm leading-relaxed max-w-2xl">
-                We use cookies to improve your experience on our site. By continuing to browse,
-                you agree to our use of cookies.{" "}
-                <span className="text-white/40 text-xs">
-                  (Privacy policy coming soon)
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+            {/* Mobile: buttons row first (stays near bottom), text below */}
+            <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-3">
+              {/* Text — sits below buttons on mobile so buttons are always near bottom-0 */}
+              <p className="text-white/60 text-xs sm:text-sm leading-relaxed sm:max-w-2xl">
+                <span className="hidden sm:inline">
+                  We use cookies to improve your experience on our site. By continuing to browse, you agree to our use of cookies.
+                </span>
+                <span className="sm:hidden">
+                  We use cookies to improve your experience.
                 </span>
               </p>
-              <div className="flex items-center gap-3 shrink-0">
+
+              {/* Buttons — always on-screen; on mobile they render above the text */}
+              <div className="flex items-center gap-2 shrink-0">
                 <button
                   onClick={() => dismiss("rejected")}
-                  className="px-4 py-2 text-sm text-white/60 hover:text-white border border-white/20 hover:border-white/40 rounded-lg transition-colors"
+                  className="flex-1 sm:flex-none px-4 py-2.5 text-sm text-white/70 hover:text-white border border-white/20 hover:border-white/40 rounded-lg transition-colors min-w-[80px]"
                 >
                   Reject
                 </button>
                 <button
                   onClick={() => dismiss("accepted")}
-                  className="px-5 py-2 text-sm font-semibold text-white bg-[#1E5FBF] hover:bg-[#163F7A] rounded-lg transition-colors"
+                  className="flex-1 sm:flex-none px-5 py-2.5 text-sm font-semibold text-white bg-[#1E5FBF] hover:bg-[#163F7A] rounded-lg transition-colors min-w-[80px]"
                 >
                   Accept
                 </button>

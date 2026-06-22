@@ -72,7 +72,7 @@ export default function AboutClient() {
       </section>
 
       {/* About the manufacturer */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={slideLeft}>
@@ -128,7 +128,7 @@ export default function AboutClient() {
       </section>
 
       {/* Distributor section */}
-      <section className="py-24 bg-[#F8FAFC]">
+      <section className="py-24 bg-[#F8FAFC] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
@@ -164,7 +164,7 @@ export default function AboutClient() {
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"

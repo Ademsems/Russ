@@ -70,7 +70,7 @@ export default function GnssCompassClient({ images }: { images: ProductImage[] }
       />
 
       {/* Overview */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={slideLeft}>
@@ -102,7 +102,7 @@ export default function GnssCompassClient({ images }: { images: ProductImage[] }
       </section>
 
       {/* Features */}
-      <section className="py-24 bg-[#F8FAFC]">
+      <section className="py-24 bg-[#F8FAFC] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-14">
             <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">Technology</span>
@@ -135,7 +135,7 @@ export default function GnssCompassClient({ images }: { images: ProductImage[] }
       </section>
 
       {/* Applications */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-10">
             <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">Use Cases</span>
@@ -160,7 +160,7 @@ export default function GnssCompassClient({ images }: { images: ProductImage[] }
       <ProductGallery images={images} productName="GNSS Compass" />
 
       {/* CTA */}
-      <section className="py-24 bg-[#F8FAFC]">
+      <section className="py-24 bg-[#F8FAFC] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-10">

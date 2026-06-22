@@ -113,7 +113,7 @@ export default function HydrusClient({ images, videos }: { images: ProductImage[
       />
 
       {/* Core sections */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
 
           {/* Truly Autonomous */}
@@ -191,7 +191,7 @@ export default function HydrusClient({ images, videos }: { images: ProductImage[
       </section>
 
       {/* Capabilities grid */}
-      <section className="py-24 bg-[#F8FAFC]">
+      <section className="py-24 bg-[#F8FAFC] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-14">
             <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">Platform</span>
@@ -218,7 +218,7 @@ export default function HydrusClient({ images, videos }: { images: ProductImage[
       </section>
 
       {/* Applications */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-14">
             <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">Use Cases</span>
@@ -275,7 +275,7 @@ export default function HydrusClient({ images, videos }: { images: ProductImage[
       <ProductGallery images={images} productName="Hydrus" />
 
       {/* CTA */}
-      <section className="py-24 bg-[#F8FAFC]">
+      <section className="py-24 bg-[#F8FAFC] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-10">

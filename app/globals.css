@@ -77,6 +77,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Clip horizontal overflow caused by x:±50 Framer Motion slide animations.
+     overflow-x: clip (not hidden) so position:fixed/sticky elements are unaffected. */
+  overflow-x: clip;
 }
 
 body {
@@ -85,4 +88,5 @@ body {
   color: #1C2033;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip; /* belt-and-braces: belt for browsers that need it on body too */
 }
