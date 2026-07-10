@@ -28,7 +28,7 @@ function NavLogo() {
 
   return (
     <Image
-      src="/images/logo/logo.png"
+      src="/logo/logo.png"
       alt="Advanced Navigation"
       width={160}
       height={40}

@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   description:
     "Exclusive authorised distributor of Advanced Navigation navigation, positioning, and autonomy technology across Slovakia, Czech Republic, Austria, and Hungary. Based in Bratislava.",
   metadataBase: new URL("https://advancednavigation.sk"),
+  icons: {
+    icon: "/logo/favicon.png",
+    shortcut: "/logo/favicon.png",
+    apple: "/logo/favicon.png",
+  },
 };
 
 export default function RootLayout({
