@@ -80,11 +80,27 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-2">
-          <p className="text-white/30 text-xs">
-            © {new Date().getFullYear()} Advanced Navigation Slovakia. All rights reserved.
+        {/* Legal line */}
+        <div className="mt-10 pt-5 border-t border-white/10">
+          <p className="text-white/25 text-xs leading-relaxed text-center sm:text-left">
+            rkctechnology s. r. o., trading as Advanced Navigation &nbsp;·&nbsp; IČO: 57282145 &nbsp;·&nbsp; DIČ: 2122652576
           </p>
-          <p className="text-white/20 text-xs">
+        </div>
+
+        <div className="mt-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+          {/* Copyright + legal links */}
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1">
+            <p className="text-white/30 text-xs">
+              © {new Date().getFullYear()} Advanced Navigation Slovakia. All rights reserved.
+            </p>
+            <Link href="/terms" className="text-white/30 hover:text-white/60 text-xs transition-colors">
+              Terms &amp; Conditions
+            </Link>
+            <Link href="/privacy" className="text-white/30 hover:text-white/60 text-xs transition-colors">
+              Privacy Policy
+            </Link>
+          </div>
+          <p className="text-white/20 text-xs shrink-0">
             Powered by{" "}
             <a
               href="https://www.dunajmedia.sk/"
