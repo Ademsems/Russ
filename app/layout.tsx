@@ -6,11 +6,11 @@ import CookieBanner from "@/components/CookieBanner";
 
 export const metadata: Metadata = {
   title: {
-    default: "Advanced Navigation — Slovakia, Czech Republic, Austria & Hungary",
-    template: "%s | Advanced Navigation",
+    default: "RKC Technology — Authorised Dealer for Advanced Navigation in Central Europe",
+    template: "%s | RKC Technology",
   },
   description:
-    "Exclusive authorised distributor of Advanced Navigation navigation, positioning, and autonomy technology across Slovakia, Czech Republic, Austria, and Hungary. Based in Bratislava.",
+    "RKC Technology is the authorised dealer for Advanced Navigation products across Slovakia, Czech Republic, Austria, and Hungary. Hydrus AUV, Subsonus USBL, GNSS Compass and more. Based in Bratislava.",
   metadataBase: new URL("https://advancednavigation.sk"),
 };
 

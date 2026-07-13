@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
-  description: "Terms and Conditions for the Advanced Navigation website operated by rkctechnology s. r. o.",
+  description: "Terms and Conditions for the RKC Technology website, operated by rkctechnology s. r. o.",
 };
 
 export default function TermsPage() {
@@ -50,7 +50,7 @@ export default function TermsPage() {
             <div className="text-[#64748B] text-sm leading-relaxed space-y-1">
               <p>The Website is operated by:</p>
               <ul className="mt-3 space-y-1 pl-0 list-none">
-                <li><strong>Company name:</strong> rkctechnology s. r. o., trading as Advanced Navigation</li>
+                <li><strong>Company name:</strong> rkctechnology s. r. o., trading as RKC Technology</li>
                 <li><strong>Legal form:</strong> Spoločnosť s ručením obmedzeným (s. r. o.)</li>
                 <li><strong>Registered office:</strong> Mrázová 7383/11, 831 06 Bratislava – mestská časť Rača, Slovakia</li>
                 <li><strong>IČO:</strong> 57282145</li>
@@ -67,7 +67,7 @@ export default function TermsPage() {
             <h2 className="text-lg font-bold mb-3">3. Purpose of the Website</h2>
             <p className="text-[#64748B] text-sm leading-relaxed">
               This Website is an informational and lead-generation platform. Its purpose is to
-              present the products distributed by rkctechnology s. r. o. and to allow
+              present the products distributed by RKC Technology and to allow
               prospective customers to submit enquiries. The Website does not operate as an
               online store; no purchases, payments, or binding sales contracts are concluded
               through this Website.
@@ -76,10 +76,13 @@ export default function TermsPage() {
 
           {/* 4 */}
           <section>
-            <h2 className="text-lg font-bold mb-3">4. Authorised Distributor Status</h2>
+            <h2 className="text-lg font-bold mb-3">4. Authorised Dealer Status</h2>
             <p className="text-[#64748B] text-sm leading-relaxed">
-              rkctechnology s. r. o. is the exclusive authorised distributor of Advanced
+              RKC Technology (rkctechnology s. r. o.) is the authorised dealer for Advanced
               Navigation Pty Ltd products in Slovakia, the Czech Republic, Austria, and Hungary.
+              RKC Technology is a dealer and distributor — it is not the manufacturer. Advanced
+              Navigation Pty Ltd (Sydney, Australia) designs, manufactures, and owns all product
+              intellectual property.
               Product specifications, imagery, datasheets, and technical information displayed on
               this Website are provided for reference purposes and reflect information supplied
               by Advanced Navigation Pty Ltd. Specifications are subject to change by the
@@ -93,7 +96,7 @@ export default function TermsPage() {
             <h2 className="text-lg font-bold mb-3">5. Intellectual Property</h2>
             <p className="text-[#64748B] text-sm leading-relaxed">
               The design, layout, text, and original content of this Website are the property
-              of rkctechnology s. r. o. or its content suppliers and are protected by applicable
+              of RKC Technology or its content suppliers and are protected by applicable
               intellectual property laws. Product names, logos, imagery, trademarks, and other
               materials relating to Advanced Navigation products are the property of Advanced
               Navigation Pty Ltd and/or their respective owners. Nothing on this Website grants
@@ -119,7 +122,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-bold mb-3">7. Limitation of Liability</h2>
             <p className="text-[#64748B] text-sm leading-relaxed">
-              To the fullest extent permitted by applicable law, rkctechnology s. r. o. shall
+              To the fullest extent permitted by applicable law, RKC Technology (rkctechnology s. r. o.) shall
               not be liable for any direct, indirect, incidental, or consequential loss or
               damage arising out of or in connection with your use of, or inability to use, this
               Website or its content. The Website is provided on an &ldquo;as is&rdquo; and

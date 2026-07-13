@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
 <body style="font-family:Inter,sans-serif;background:#F8FAFC;margin:0;padding:32px;">
   <div style="max-width:560px;margin:0 auto;background:white;border-radius:12px;overflow:hidden;border:1px solid #E2E8F0;">
     <div style="background:#163F7A;padding:28px 32px;">
-      <p style="margin:0;color:#00B89F;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;">Advanced Navigation</p>
+      <p style="margin:0;color:#00B89F;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;">RKC Technology</p>
       <h1 style="margin:6px 0 0;color:white;font-size:22px;font-weight:700;">New Contact Enquiry</h1>
     </div>
     <div style="padding:32px;">
@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
 </html>`.trim();
 
   const notifyText = [
-    "New Contact Enquiry — Advanced Navigation",
+    "New Contact Enquiry — RKC Technology",
     "",
     `Name: ${String(name)}`,
     `Email: ${String(email)}`,
@@ -107,7 +107,7 @@ export async function POST(req: NextRequest) {
 
     <!-- Header -->
     <div style="background:#163F7A;padding:28px 32px;">
-      <p style="margin:0;color:#00B89F;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;">Advanced Navigation</p>
+      <p style="margin:0;color:#00B89F;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;">RKC Technology</p>
       <h1 style="margin:6px 0 0;color:white;font-size:22px;font-weight:700;">We&apos;ve received your enquiry</h1>
     </div>
 
@@ -115,7 +115,7 @@ export async function POST(req: NextRequest) {
     <div style="padding:32px;">
       <p style="margin:0 0 16px;font-size:15px;color:#1C2033;line-height:1.7;">Hi ${String(name)},</p>
       <p style="margin:0 0 16px;font-size:15px;color:#1C2033;line-height:1.7;">
-        Thank you for reaching out to Advanced Navigation. We&apos;ve received your enquiry and a member of
+        Thank you for reaching out to RKC Technology. We&apos;ve received your enquiry and a member of
         our team will get back to you shortly.
       </p>
 
@@ -145,9 +145,10 @@ export async function POST(req: NextRequest) {
       <!-- Sign-off -->
       <hr style="border:none;border-top:1px solid #E2E8F0;margin:24px 0;">
       <p style="margin:0 0 4px;font-size:14px;font-weight:600;color:#1C2033;">Best regards,</p>
-      <p style="margin:0 0 12px;font-size:14px;color:#1C2033;">The Advanced Navigation Team</p>
+      <p style="margin:0 0 12px;font-size:14px;color:#1C2033;">The RKC Technology Team</p>
       <p style="margin:0;font-size:12px;color:#94A3B8;line-height:1.8;">
-        Advanced Navigation<br>
+        RKC Technology<br>
+        Authorised dealer for Advanced Navigation<br>
         Mr&#225;zov&#225; 11, Ra&#269;a, 831 06 Bratislava, Slovakia<br>
         +421 949 225 542<br>
         advancednavigation.sk
@@ -160,7 +161,7 @@ export async function POST(req: NextRequest) {
   const autoText = [
     `Hi ${String(name)},`,
     "",
-    "Thank you for reaching out to Advanced Navigation. We've received your enquiry and a member of our team will get back to you shortly.",
+    "Thank you for reaching out to RKC Technology. We've received your enquiry and a member of our team will get back to you shortly.",
     "",
     "Prefer a faster response? Message us on WhatsApp:",
     "https://wa.me/421949225542",
@@ -169,8 +170,9 @@ export async function POST(req: NextRequest) {
     quotedMessage,
     "",
     "Best regards,",
-    "The Advanced Navigation Team",
-    "Advanced Navigation · Mrázová 11, Rača, 831 06 Bratislava · +421 949 225 542 · advancednavigation.sk",
+    "The RKC Technology Team",
+    "RKC Technology — Authorised dealer for Advanced Navigation",
+    "Mrázová 11, Rača, 831 06 Bratislava · +421 949 225 542 · advancednavigation.sk",
   ].join("\n");
 
   // ── Send ───────────────────────────────────────────────────────────────────
@@ -181,7 +183,7 @@ export async function POST(req: NextRequest) {
 
     // 1. Critical: notify the client
     const { error: notifyError } = await resend.emails.send({
-      from: "Advanced Navigation <noreply@advancednavigation.sk>",
+      from: "RKC Technology <noreply@advancednavigation.sk>",
       to: [toEmail],
       replyTo: String(email),
       subject: `Enquiry from ${String(name)}`,
@@ -197,10 +199,10 @@ export async function POST(req: NextRequest) {
     // 2. Non-critical: autoresponder to the visitor
     try {
       const { error: autoError } = await resend.emails.send({
-        from: "Advanced Navigation <noreply@advancednavigation.sk>",
+        from: "RKC Technology <noreply@advancednavigation.sk>",
         to: [String(email)],
         replyTo: toEmail,
-        subject: "Thank you for contacting Advanced Navigation",
+        subject: "Thank you for contacting RKC Technology",
         html: autoHtml,
         text: autoText,
       });

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -27,7 +27,7 @@ const values = [
   },
   {
     title: "Innovation",
-    body: "The navigation industry is evolving fast. We stay at the forefront so our clients always have access to what's next.",
+    body: "Pushing the boundaries of innovation — we stay at the forefront of navigation technology so our clients always have access to what's next.",
   },
 ];
 
@@ -61,45 +61,39 @@ export default function AboutClient() {
               Who We Are
             </motion.span>
             <motion.h1 variants={fadeUp} className="text-5xl sm:text-6xl font-bold text-white leading-tight mb-5">
-              About Advanced Navigation
+              About RKC Technology
             </motion.h1>
             <motion.p variants={fadeUp} className="text-xl text-white/60 max-w-xl leading-relaxed">
-              The exclusive authorised distributor of Advanced Navigation technology across
-              Slovakia, the Czech Republic, Austria, and Hungary.
+              The authorised dealer for Advanced Navigation across Slovakia, the Czech Republic, Austria, and Hungary.
             </motion.p>
           </motion.div>
         </div>
       </section>
 
-      {/* About the manufacturer */}
+      {/* Who We Are — RKC */}
       <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={slideLeft}>
-              <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">The Technology Partner</span>
-              <h2 className="mt-3 text-3xl font-bold text-[#1C2033] mb-6">About Advanced Navigation</h2>
+              <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">Who We Are</span>
+              <h2 className="mt-3 text-3xl font-bold text-[#1C2033] mb-6">RKC Technology</h2>
               <div className="space-y-4 text-[#64748B] leading-relaxed text-[15px]">
                 <p>
-                  By combining software-enhanced hardware, Advanced Navigation&apos;s solutions deliver
-                  unmatched capability and performance across land, air, sea and space applications &mdash;
-                  including environments where GPS is unreliable or unavailable.
+                  RKC Technology is a Bratislava-based technology company and the authorised dealer for
+                  Advanced Navigation across Slovakia, the Czech Republic, Austria, and Hungary. We bring
+                  world-leading navigation, positioning, and autonomy technology to organisations across the
+                  region — supported by local expertise, consultation, and hands-on technical service.
                 </p>
                 <p>
-                  Built on a foundation of extensive research, testing, and vertically integrated
-                  manufacturing, the company operates across deep technology fields including robotics,
-                  inertial, photonic and quantum sensing, artificial intelligence, underwater acoustics,
-                  and GPS antennas and receivers. Customers choose Advanced Navigation for fast product
-                  delivery and unmatched technical field expertise.
+                  We work with clients across marine, subsea, defence, and autonomous systems sectors,
+                  helping them specify, source, and deploy the right solution for their project. Our role
+                  goes beyond supply: we act as a technical partner from first enquiry through to deployment
+                  and beyond.
                 </p>
                 <p>
-                  Founded on a culture of research and discovery, Advanced Navigation&apos;s mission is to be
-                  the catalyst of the autonomy revolution &mdash; applying breakthrough technology to extend
-                  human capability and build a more resilient, sustainable, and safer future.
-                </p>
-                <p>
-                  Advanced Navigation is headquartered in Sydney, Australia, with research and production
-                  facilities across the country and offices around the world. It is an Australian
-                  manufacturer exporting worldwide.
+                  Pushing the boundaries of innovation, we stay at the forefront of navigation technology
+                  so our clients always have direct access to what&apos;s next — backed by the expertise
+                  and support to make it work in the field.
                 </p>
               </div>
             </motion.div>
@@ -112,9 +106,9 @@ export default function AboutClient() {
               className="space-y-4 lg:pt-14"
             >
               {[
-                { label: "Deep Technology Fields", value: "7+", sub: "Robotics, inertial, AI, underwater acoustics & more" },
-                { label: "Global Reach", value: "Worldwide", sub: "Australian manufacturer exporting internationally" },
-                { label: "Products Available Locally", value: "4", sub: "Hydrus, Subsonus, Subsonus Tag, GNSS Compass" },
+                { label: "Authorised Dealer", value: "Official", sub: "Exclusive Advanced Navigation dealer for SK, CZ, AT & HU" },
+                { label: "Coverage", value: "4 Countries", sub: "Slovakia · Czech Republic · Austria · Hungary" },
+                { label: "Products Supplied", value: "4", sub: "Hydrus, Subsonus, Subsonus Tag, GNSS Compass" },
               ].map((stat) => (
                 <div key={stat.label} className="p-6 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC]">
                   <div className="text-3xl font-bold text-[#1E5FBF] mb-1">{stat.value}</div>
@@ -127,25 +121,36 @@ export default function AboutClient() {
         </div>
       </section>
 
-      {/* Distributor section */}
+      {/* About the manufacturer */}
       <section className="py-24 bg-[#F8FAFC] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-              <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">Our Role</span>
-              <h2 className="mt-3 text-3xl font-bold text-[#1C2033] mb-6">Advanced Navigation in Central Europe</h2>
+              <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">The Manufacturer</span>
+              <h2 className="mt-3 text-3xl font-bold text-[#1C2033] mb-6">About Advanced Navigation</h2>
               <div className="space-y-4 text-[#64748B] leading-relaxed text-[15px]">
                 <p>
-                  We are the official, exclusive distributor of Advanced Navigation products across
-                  Slovakia, the Czech Republic, Austria, and Hungary. Based in Bratislava, we bring this
-                  Australian manufacturer&apos;s navigation, positioning, and autonomy technology directly
-                  to customers across the region &mdash; backed by local technical support, consultation, and
-                  after-sales service.
+                  Advanced Navigation Pty Ltd is the Australian manufacturer whose products RKC Technology
+                  supplies and supports in Central Europe. By combining software-enhanced hardware, Advanced
+                  Navigation&apos;s solutions deliver unmatched capability and performance across land, air,
+                  sea and space applications — including environments where GPS is unreliable or unavailable.
                 </p>
                 <p>
-                  Whether you&apos;re deploying underwater survey systems, autonomous vehicles, or precision
-                  marine navigation, our team works directly with you to specify, source, and support the
-                  right Advanced Navigation solution for your project.
+                  Built on a foundation of extensive research, testing, and vertically integrated
+                  manufacturing, the company operates across deep technology fields including robotics,
+                  inertial, photonic and quantum sensing, artificial intelligence, underwater acoustics,
+                  and GPS antennas and receivers. Customers choose Advanced Navigation for fast product
+                  delivery and unmatched technical field expertise.
+                </p>
+                <p>
+                  Founded on a culture of research and discovery, Advanced Navigation&apos;s mission is to be
+                  the catalyst of the autonomy revolution — applying breakthrough technology to extend
+                  human capability and build a more resilient, sustainable, and safer future.
+                </p>
+                <p>
+                  Advanced Navigation is headquartered in Sydney, Australia, with research and production
+                  facilities across the country and offices around the world. It is an Australian
+                  manufacturer exporting worldwide.
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -207,7 +212,7 @@ export default function AboutClient() {
               href="/contact"
               className="inline-block px-8 py-3 bg-[#1E5FBF] text-white font-semibold rounded-lg hover:bg-[#1a52a8] border border-white/20 transition-colors"
             >
-              Contact Us
+              Contact RKC Technology
             </Link>
           </motion.div>
         </div>

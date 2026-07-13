@@ -6,7 +6,7 @@ import { getHeroImage } from "@/lib/getHeroImage";
 export const metadata: Metadata = {
   title: "Subsonus Tag — Subsea Transponder",
   description:
-    "Subsonus Tag is an ultra-long-life underwater transponder for reliable subsea tracking of divers, ROVs, and assets. Available from Russ in Central Europe.",
+    "Subsonus Tag is an ultra-long-life underwater transponder by Advanced Navigation for reliable subsea tracking. Available from RKC Technology — authorised dealer for Central Europe.",
 };
 
 export default function SubsonusTagPage() {

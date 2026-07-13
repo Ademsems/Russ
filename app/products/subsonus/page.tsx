@@ -6,7 +6,7 @@ import { getHeroImage } from "@/lib/getHeroImage";
 export const metadata: Metadata = {
   title: "Subsonus — Underwater Acoustic Positioning",
   description:
-    "Subsonus is a compact USBL underwater acoustic positioning system for tracking ROVs, divers, and assets. Available from Russ in Central Europe.",
+    "Subsonus is a compact USBL underwater acoustic positioning system by Advanced Navigation. Available from RKC Technology — authorised dealer for Slovakia, Czech Republic, Austria, and Hungary.",
 };
 
 export default function SubsonusPage() {

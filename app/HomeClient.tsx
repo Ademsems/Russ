@@ -22,16 +22,16 @@ interface HomeClientProps {
 
 const pillars = [
   {
-    title: "Expert Distribution",
-    body: "We are the exclusive authorised regional partner for Advanced Navigation products across Slovakia, the Czech Republic, Austria, and Hungary — providing direct access to best-in-class navigation technology.",
+    title: "Authorised Dealer",
+    body: "We are the official authorised dealer for Advanced Navigation in Slovakia, the Czech Republic, Austria, and Hungary — giving you direct access to their full product range with genuine manufacturer support.",
   },
   {
     title: "Local Support",
-    body: "Based in Bratislava, we offer on-the-ground technical support, consultation, and after-sales service in your timezone and language.",
+    body: "Based in Bratislava, we provide on-the-ground technical support, consultation, and after-sales service across the region — in your timezone and language.",
   },
   {
     title: "Proven Technology",
-    body: "Every product we carry is field-tested and trusted by defence, marine, and subsea operators worldwide. Backed by Advanced Navigation's global expertise.",
+    body: "Every product we supply is engineered by Advanced Navigation, an Australian manufacturer trusted by defence, marine, and subsea operators worldwide.",
   },
 ];
 
@@ -50,6 +50,13 @@ const slideRight = {
 
 const HOME_WA_MSG =
   "Hi, I'm interested in Advanced Navigation products. Could you tell me more?";
+
+const productTaglines: Record<string, string> = {
+  Hydrus: "The autonomous underwater drone redefining subsea surveying.",
+  Subsonus: "Compact acoustic positioning and communication for underwater operations.",
+  "Subsonus Tag": "The ultra-long-life transponder built for reliable subsea tracking.",
+  "GNSS Compass": "All-in-one satellite compass delivering precise heading and positioning.",
+};
 
 export default function HomeClient({ products }: HomeClientProps) {
   const carouselSlides: CarouselSlide[] = products
@@ -84,19 +91,20 @@ export default function HomeClient({ products }: HomeClientProps) {
           >
             <motion.div variants={fadeUp} className="mb-5">
               <span className="inline-block text-[#00B89F] text-xs font-semibold tracking-[0.25em] uppercase border border-[#00B89F]/30 px-3 py-1 rounded-full">
-                Authorised Distributor · Slovakia · CZ · AT · HU
+                Authorised Dealer · Slovakia · CZ · AT · HU
               </span>
             </motion.div>
             <motion.h1
               variants={fadeUp}
               className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.08] mb-6"
             >
-              Precision Navigation.{" "}
+              Precision Navigation Technology,{" "}
               <span className="text-[#00B89F]">Delivered.</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="text-lg text-white/60 leading-relaxed max-w-xl mb-10">
-              Advanced Navigation brings world-class underwater, surface, and inertial navigation
-              technology to Central Europe. Trusted technology. Expert support. Based in Bratislava.
+              RKC Technology is the authorised dealer for Advanced Navigation across Slovakia, the Czech
+              Republic, Austria, and Hungary — bringing world-class underwater, marine, and inertial
+              navigation systems to Central Europe.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
               <Link
@@ -144,6 +152,9 @@ export default function HomeClient({ products }: HomeClientProps) {
           >
             <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">Advanced Navigation Portfolio</span>
             <h2 className="mt-3 text-4xl font-bold text-[#1C2033]">Our Products</h2>
+            <p className="mt-3 text-[#64748B] text-sm max-w-xl mx-auto">
+              RKC Technology supplies and supports the full Advanced Navigation product range across Central Europe.
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -192,10 +203,7 @@ export default function HomeClient({ products }: HomeClientProps) {
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-[#1C2033] mb-2">{product.name}</h3>
                   <p className="text-[#64748B] text-sm leading-relaxed mb-5">
-                    {product.name === "Hydrus" && "The autonomous underwater drone redefining subsea surveying."}
-                    {product.name === "Subsonus" && "Compact acoustic positioning and communication for underwater operations."}
-                    {product.name === "Subsonus Tag" && "The ultra-long-life transponder built for reliable subsea tracking."}
-                    {product.name === "GNSS Compass" && "All-in-one satellite compass delivering precise heading and positioning."}
+                    {productTaglines[product.name] ?? ""}
                   </p>
                   <Link
                     href={product.href}
@@ -213,7 +221,7 @@ export default function HomeClient({ products }: HomeClientProps) {
         </div>
       </section>
 
-      {/* Why us */}
+      {/* Why RKC Technology */}
       <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -224,7 +232,7 @@ export default function HomeClient({ products }: HomeClientProps) {
             className="text-center mb-16"
           >
             <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">Our Advantage</span>
-            <h2 className="mt-3 text-4xl font-bold text-[#1C2033]">Why Work With Us?</h2>
+            <h2 className="mt-3 text-4xl font-bold text-[#1C2033]">Why RKC Technology?</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

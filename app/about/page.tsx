@@ -4,7 +4,7 @@ import AboutClient from "./AboutClient";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about Russ — the authorised Advanced Navigation distributor for Central Europe, based in Bratislava, Slovakia.",
+    "RKC Technology is the authorised dealer for Advanced Navigation products in Slovakia, Czech Republic, Austria, and Hungary. Based in Bratislava.",
 };
 
 export default function AboutPage() {

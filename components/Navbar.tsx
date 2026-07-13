@@ -20,22 +20,29 @@ function NavLogo() {
   if (imgError) {
     return (
       <div className="flex flex-col leading-none select-none">
-        <span className="text-white font-bold text-sm tracking-[0.18em] uppercase">ADVANCED</span>
-        <span className="text-[#00B89F] font-bold text-sm tracking-[0.18em] uppercase">NAVIGATION</span>
+        <span className="text-white font-bold text-sm tracking-[0.18em] uppercase">RKC</span>
+        <span className="text-[#00B89F] font-bold text-sm tracking-[0.18em] uppercase">TECHNOLOGY</span>
       </div>
     );
   }
 
   return (
-    <Image
-      src="/logo/logo.png"
-      alt="Advanced Navigation"
-      width={160}
-      height={40}
-      className="h-8 w-auto object-contain"
-      onError={() => setImgError(true)}
-      priority
-    />
+    <div className="flex items-center gap-2.5">
+      {/* Circuit mark only — the full logo lockup is too tall for a navbar */}
+      <Image
+        src="/logo/favicon.png"
+        alt="RKC Technology"
+        width={32}
+        height={32}
+        className="h-8 w-8 object-contain brightness-0 invert"
+        onError={() => setImgError(true)}
+        priority
+      />
+      <div className="flex flex-col leading-none select-none">
+        <span className="text-white font-bold text-[13px] tracking-[0.12em] uppercase">RKC Technology</span>
+        <span className="text-white/40 font-normal text-[9px] tracking-[0.18em] uppercase">Authorised Dealer</span>
+      </div>
+    </div>
   );
 }
 

@@ -7,7 +7,7 @@ import { getHeroImage } from "@/lib/getHeroImage";
 export const metadata: Metadata = {
   title: "Hydrus — Autonomous Underwater Vehicle",
   description:
-    "Hydrus is a micro hovering AUV that makes subsea surveying and inspection easy and affordable. Available from Russ in Central Europe.",
+    "Hydrus is a micro hovering AUV by Advanced Navigation that makes subsea surveying easy and affordable. Available from RKC Technology — authorised dealer for Central Europe.",
 };
 
 export default function HydrusPage() {

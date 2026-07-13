@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy Policy for the Advanced Navigation website operated by rkctechnology s. r. o.",
+  description: "Privacy Policy for the RKC Technology website, operated by rkctechnology s. r. o.",
 };
 
 export default function PrivacyPage() {
@@ -37,7 +37,7 @@ export default function PrivacyPage() {
             <div className="text-[#64748B] text-sm leading-relaxed space-y-1">
               <p>The data controller responsible for your personal data is:</p>
               <ul className="mt-3 space-y-1 pl-0 list-none">
-                <li><strong>Company:</strong> rkctechnology s. r. o., trading as Advanced Navigation</li>
+                <li><strong>Company:</strong> rkctechnology s. r. o., trading as RKC Technology</li>
                 <li><strong>Registered office:</strong> Mrázová 11, 831 06 Bratislava – Rača, Slovakia</li>
                 <li><strong>IČO:</strong> 57282145</li>
                 <li><strong>Contact:</strong> <a href="mailto:info@advancednavigation.sk" className="text-[#1E5FBF] hover:underline">info@advancednavigation.sk</a></li>

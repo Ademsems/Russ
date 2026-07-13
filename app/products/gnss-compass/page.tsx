@@ -6,7 +6,7 @@ import { getHeroImage } from "@/lib/getHeroImage";
 export const metadata: Metadata = {
   title: "GNSS Compass — Precision Navigation System",
   description:
-    "The GNSS Compass is an all-in-one GPS-aided inertial navigation system with RTK positioning and precise heading. Available from Russ in Central Europe.",
+    "The GNSS Compass is an all-in-one GPS-aided inertial navigation system by Advanced Navigation with RTK positioning. Available from RKC Technology — authorised dealer for Central Europe.",
 };
 
 export default function GnssCompassPage() {

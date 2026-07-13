@@ -8,14 +8,11 @@ const products = [
   { name: "GNSS Compass", href: "/products/gnss-compass" },
 ];
 
-// Email is TBC — placeholder only, swap when confirmed
-const EMAIL_PLACEHOLDER = "info@advancednavigation.sk";
-
 function FooterLogo() {
   return (
     <div className="flex flex-col leading-none select-none">
-      <span className="text-white font-bold text-sm tracking-[0.18em] uppercase">ADVANCED</span>
-      <span className="text-[#00B89F] font-bold text-sm tracking-[0.18em] uppercase">NAVIGATION</span>
+      <span className="text-white font-bold text-sm tracking-[0.18em] uppercase">RKC</span>
+      <span className="text-[#00B89F] font-bold text-sm tracking-[0.18em] uppercase">TECHNOLOGY</span>
     </div>
   );
 }
@@ -27,9 +24,19 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="md:col-span-1">
-            <FooterLogo />
-            <p className="mt-4 text-white/50 text-sm leading-relaxed">
-              Exclusive distributor of Advanced Navigation technology across Slovakia,
+            {/* Full logo lockup — more vertical space available in footer */}
+            <div className="mb-4">
+              <Image
+                src="/logo/logo.png"
+                alt="RKC Technology"
+                width={140}
+                height={80}
+                className="h-20 w-auto object-contain brightness-0 invert"
+                onError={undefined}
+              />
+            </div>
+            <p className="mt-2 text-white/50 text-sm leading-relaxed">
+              Authorised dealer for Advanced Navigation products across Slovakia,
               Czech Republic, Austria &amp; Hungary.
             </p>
           </div>
@@ -66,14 +73,13 @@ export default function Footer() {
                 Mrázová 11, Rača<br />831 06 Bratislava, Slovakia
               </li>
               <li>
-                <a href={`tel:+421949225542`} className="text-white/50 hover:text-white transition-colors">
+                <a href="tel:+421949225542" className="text-white/50 hover:text-white transition-colors">
                   +421 949 225 542
                 </a>
               </li>
               <li>
-                {/* Email TBC — placeholder */}
-                <a href={`mailto:${EMAIL_PLACEHOLDER}`} className="text-white/50 hover:text-white transition-colors">
-                  {EMAIL_PLACEHOLDER}
+                <a href="mailto:info@advancednavigation.sk" className="text-white/50 hover:text-white transition-colors">
+                  info@advancednavigation.sk
                 </a>
               </li>
             </ul>
@@ -83,15 +89,14 @@ export default function Footer() {
         {/* Legal line */}
         <div className="mt-10 pt-5 border-t border-white/10">
           <p className="text-white/25 text-xs leading-relaxed text-center sm:text-left">
-            rkctechnology s. r. o., trading as Advanced Navigation &nbsp;·&nbsp; IČO: 57282145 &nbsp;·&nbsp; DIČ: 2122652576
+            rkctechnology s. r. o., trading as RKC Technology &nbsp;·&nbsp; IČO: 57282145 &nbsp;·&nbsp; DIČ: 2122652576
           </p>
         </div>
 
         <div className="mt-4 flex flex-col sm:flex-row justify-between items-center gap-3">
-          {/* Copyright + legal links */}
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1">
             <p className="text-white/30 text-xs">
-              © {new Date().getFullYear()} Advanced Navigation Slovakia. All rights reserved.
+              © {new Date().getFullYear()} RKC Technology. All rights reserved.
             </p>
             <Link href="/terms" className="text-white/30 hover:text-white/60 text-xs transition-colors">
               Terms &amp; Conditions
