@@ -7,6 +7,7 @@ import ContactForm from "@/components/ContactForm";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ProductCarousel from "@/components/ProductCarousel";
 import type { CarouselSlide } from "@/components/ProductCarousel";
+import type { ContentMap } from "@/lib/content";
 
 interface Product {
   slug: string;
@@ -18,19 +19,26 @@ interface Product {
 
 interface HomeClientProps {
   products: Product[];
+  content: ContentMap;
 }
 
-const pillars = [
+const pillarFallback = [
   {
+    titleKey: "home.why.pillar1_title",
     title: "Authorised Dealer",
+    bodyKey: "home.why.pillar1_body",
     body: "We are the official authorised dealer for Advanced Navigation in Slovakia, the Czech Republic, Austria, and Hungary — giving you direct access to their full product range with genuine manufacturer support.",
   },
   {
+    titleKey: "home.why.pillar2_title",
     title: "Local Support",
+    bodyKey: "home.why.pillar2_body",
     body: "Based in Bratislava, we provide on-the-ground technical support, consultation, and after-sales service across the region — in your timezone and language.",
   },
   {
+    titleKey: "home.why.pillar3_title",
     title: "Proven Technology",
+    bodyKey: "home.why.pillar3_body",
     body: "Every product we supply is engineered by Advanced Navigation, an Australian manufacturer trusted by defence, marine, and subsea operators worldwide.",
   },
 ];
@@ -48,17 +56,16 @@ const slideRight = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
 };
 
-const HOME_WA_MSG =
-  "Hi, I'm interested in Advanced Navigation products. Could you tell me more?";
-
-const productTaglines: Record<string, string> = {
-  Hydrus: "The autonomous underwater drone redefining subsea surveying.",
-  Subsonus: "Compact acoustic positioning and communication for underwater operations.",
-  "Subsonus Tag": "The ultra-long-life transponder built for reliable subsea tracking.",
-  "GNSS Compass": "All-in-one satellite compass delivering precise heading and positioning.",
+const productTaglineKeys: Record<string, { key: string; fallback: string }> = {
+  Hydrus: { key: "home.products.tagline_hydrus", fallback: "The autonomous underwater drone redefining subsea surveying." },
+  Subsonus: { key: "home.products.tagline_subsonus", fallback: "Compact acoustic positioning and communication for underwater operations." },
+  "Subsonus Tag": { key: "home.products.tagline_subsonus_tag", fallback: "The ultra-long-life transponder built for reliable subsea tracking." },
+  "GNSS Compass": { key: "home.products.tagline_gnss_compass", fallback: "All-in-one satellite compass delivering precise heading and positioning." },
 };
 
-export default function HomeClient({ products }: HomeClientProps) {
+export default function HomeClient({ products, content }: HomeClientProps) {
+  const c = (key: string, fallback = "") => content[key] || fallback;
+
   const carouselSlides: CarouselSlide[] = products
     .filter((p): p is Product & { heroImage: string } => p.heroImage !== null)
     .map((p) => ({ name: p.name, href: p.href, heroImage: p.heroImage }));
@@ -91,33 +98,34 @@ export default function HomeClient({ products }: HomeClientProps) {
           >
             <motion.div variants={fadeUp} className="mb-5">
               <span className="inline-block text-[#00B89F] text-xs font-semibold tracking-[0.25em] uppercase border border-[#00B89F]/30 px-3 py-1 rounded-full">
-                Authorised Dealer · Slovakia · CZ · AT · HU
+                {c("home.hero.badge", "Authorised Dealer · Slovakia · CZ · AT · HU")}
               </span>
             </motion.div>
             <motion.h1
               variants={fadeUp}
               className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.08] mb-6"
             >
-              Precision Navigation Technology,{" "}
-              <span className="text-[#00B89F]">Delivered.</span>
+              {c("home.hero.headline_line1", "Precision Navigation Technology,")}{" "}
+              <span className="text-[#00B89F]">{c("home.hero.headline_accent", "Delivered.")}</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="text-lg text-white/60 leading-relaxed max-w-xl mb-10">
-              RKC Technology is the authorised dealer for Advanced Navigation across Slovakia, the Czech
-              Republic, Austria, and Hungary — bringing world-class underwater, marine, and inertial
-              navigation systems to Central Europe.
+              {c(
+                "home.hero.subheadline",
+                "RKC Technology is the authorised dealer for Advanced Navigation across Slovakia, the Czech Republic, Austria, and Hungary — bringing world-class underwater, marine, and inertial navigation systems to Central Europe."
+              )}
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
               <Link
                 href="#products"
                 className="px-6 py-3 bg-[#1E5FBF] text-white font-semibold text-sm rounded-lg hover:bg-[#163F7A] border border-white/20 transition-colors"
               >
-                Explore Products
+                {c("home.hero.cta_primary", "Explore Products")}
               </Link>
               <Link
                 href="#contact"
                 className="px-6 py-3 border border-white/30 text-white font-semibold text-sm rounded-lg hover:border-white/60 hover:bg-white/5 transition-colors"
               >
-                Get In Touch
+                {c("home.hero.cta_secondary", "Get In Touch")}
               </Link>
             </motion.div>
           </motion.div>
@@ -128,7 +136,7 @@ export default function HomeClient({ products }: HomeClientProps) {
           transition={{ delay: 1.2, duration: 0.6 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
-          <span className="text-white/30 text-xs tracking-widest uppercase">Scroll</span>
+          <span className="text-white/30 text-xs tracking-widest uppercase">{c("home.hero.scroll_label", "Scroll")}</span>
           <motion.div
             animate={{ y: [0, 6, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}
@@ -150,73 +158,78 @@ export default function HomeClient({ products }: HomeClientProps) {
             variants={fadeUp}
             className="text-center mb-16"
           >
-            <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">Advanced Navigation Portfolio</span>
-            <h2 className="mt-3 text-4xl font-bold text-[#1C2033]">Our Products</h2>
+            <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">
+              {c("home.products.eyebrow", "Advanced Navigation Portfolio")}
+            </span>
+            <h2 className="mt-3 text-4xl font-bold text-[#1C2033]">{c("home.products.heading", "Our Products")}</h2>
             <p className="mt-3 text-[#64748B] text-sm max-w-xl mx-auto">
-              RKC Technology supplies and supports the full Advanced Navigation product range across Central Europe.
+              {c("home.products.subtext", "RKC Technology supplies and supports the full Advanced Navigation product range across Central Europe.")}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {products.map((product, i) => (
-              <motion.div
-                key={product.href}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={i % 2 === 0 ? slideLeft : slideRight}
-                whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(28,32,51,0.10)" }}
-                className="bg-white rounded-2xl border border-[#E2E8F0] overflow-hidden transition-shadow"
-              >
-                {/* Card image area */}
-                <div className="h-40 relative overflow-hidden">
-                  {product.heroImage ? (
-                    <>
-                      <Image
-                        src={product.heroImage}
-                        alt={product.name}
-                        fill
-                        className="object-cover object-center"
-                        sizes="(max-width: 640px) 100vw, 50vw"
-                      />
-                      <div className="absolute inset-0 bg-[#163F7A]/40" />
-                    </>
-                  ) : (
-                    <div
-                      className="w-full h-full flex items-center justify-center relative"
-                      style={{
-                        background: `linear-gradient(135deg, #163F7A 0%, ${product.accent === "#00B89F" ? "#0D2E5A" : "#163F7A"} 100%)`,
-                      }}
-                    >
+            {products.map((product, i) => {
+              const taglineInfo = productTaglineKeys[product.name];
+              return (
+                <motion.div
+                  key={product.href}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={i % 2 === 0 ? slideLeft : slideRight}
+                  whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(28,32,51,0.10)" }}
+                  className="bg-white rounded-2xl border border-[#E2E8F0] overflow-hidden transition-shadow"
+                >
+                  {/* Card image area */}
+                  <div className="h-40 relative overflow-hidden">
+                    {product.heroImage ? (
+                      <>
+                        <Image
+                          src={product.heroImage}
+                          alt={product.name}
+                          fill
+                          className="object-cover object-center"
+                          sizes="(max-width: 640px) 100vw, 50vw"
+                        />
+                        <div className="absolute inset-0 bg-[#163F7A]/40" />
+                      </>
+                    ) : (
                       <div
-                        className="absolute inset-0 opacity-20"
+                        className="w-full h-full flex items-center justify-center relative"
                         style={{
-                          backgroundImage: `radial-gradient(circle at 60% 40%, ${product.accent} 0%, transparent 60%)`,
+                          background: `linear-gradient(135deg, #163F7A 0%, ${product.accent === "#00B89F" ? "#0D2E5A" : "#163F7A"} 100%)`,
                         }}
-                      />
-                      <span className="text-white/10 text-7xl font-bold tracking-wider uppercase select-none">
-                        {product.name.charAt(0)}
-                      </span>
-                    </div>
-                  )}
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-[#1C2033] mb-2">{product.name}</h3>
-                  <p className="text-[#64748B] text-sm leading-relaxed mb-5">
-                    {productTaglines[product.name] ?? ""}
-                  </p>
-                  <Link
-                    href={product.href}
-                    className="inline-flex items-center gap-1.5 text-[#1E5FBF] text-sm font-semibold hover:gap-3 transition-all duration-200"
-                  >
-                    Learn More
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path d="M2 7H12M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
+                      >
+                        <div
+                          className="absolute inset-0 opacity-20"
+                          style={{
+                            backgroundImage: `radial-gradient(circle at 60% 40%, ${product.accent} 0%, transparent 60%)`,
+                          }}
+                        />
+                        <span className="text-white/10 text-7xl font-bold tracking-wider uppercase select-none">
+                          {product.name.charAt(0)}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold text-[#1C2033] mb-2">{product.name}</h3>
+                    <p className="text-[#64748B] text-sm leading-relaxed mb-5">
+                      {taglineInfo ? c(taglineInfo.key, taglineInfo.fallback) : ""}
+                    </p>
+                    <Link
+                      href={product.href}
+                      className="inline-flex items-center gap-1.5 text-[#1E5FBF] text-sm font-semibold hover:gap-3 transition-all duration-200"
+                    >
+                      {c("home.products.card_cta", "Learn More")}
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M2 7H12M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </Link>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -231,14 +244,14 @@ export default function HomeClient({ products }: HomeClientProps) {
             variants={fadeUp}
             className="text-center mb-16"
           >
-            <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">Our Advantage</span>
-            <h2 className="mt-3 text-4xl font-bold text-[#1C2033]">Why RKC Technology?</h2>
+            <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">{c("home.why.eyebrow", "Our Advantage")}</span>
+            <h2 className="mt-3 text-4xl font-bold text-[#1C2033]">{c("home.why.heading", "Why RKC Technology?")}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {pillars.map((pillar, i) => (
+            {pillarFallback.map((pillar, i) => (
               <motion.div
-                key={pillar.title}
+                key={pillar.titleKey}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -247,8 +260,8 @@ export default function HomeClient({ products }: HomeClientProps) {
                 className="p-8 rounded-2xl border border-[#E2E8F0] transition-shadow"
               >
                 <div className="w-10 h-1 bg-[#00B89F] rounded mb-5" />
-                <h3 className="text-lg font-bold text-[#1C2033] mb-3">{pillar.title}</h3>
-                <p className="text-[#64748B] text-sm leading-relaxed">{pillar.body}</p>
+                <h3 className="text-lg font-bold text-[#1C2033] mb-3">{c(pillar.titleKey, pillar.title)}</h3>
+                <p className="text-[#64748B] text-sm leading-relaxed">{c(pillar.bodyKey, pillar.body)}</p>
               </motion.div>
             ))}
           </div>
@@ -266,10 +279,10 @@ export default function HomeClient({ products }: HomeClientProps) {
               variants={fadeUp}
               className="text-center mb-10"
             >
-              <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">Reach Out</span>
-              <h2 className="mt-3 text-4xl font-bold text-[#1C2033]">Get In Touch</h2>
+              <span className="text-[#00B89F] text-xs font-semibold tracking-[0.2em] uppercase">{c("home.contact.eyebrow", "Reach Out")}</span>
+              <h2 className="mt-3 text-4xl font-bold text-[#1C2033]">{c("home.contact.heading", "Get In Touch")}</h2>
               <p className="mt-4 text-[#64748B] leading-relaxed">
-                Have a question about a product or want to discuss your project? Our team will get back to you shortly.
+                {c("home.contact.subtext", "Have a question about a product or want to discuss your project? Our team will get back to you shortly.")}
               </p>
             </motion.div>
             <motion.div
@@ -280,7 +293,9 @@ export default function HomeClient({ products }: HomeClientProps) {
             >
               <div className="bg-white rounded-2xl border border-[#E2E8F0] p-8">
                 <ContactForm />
-                <WhatsAppButton message={HOME_WA_MSG} />
+                <WhatsAppButton
+                  message={c("home.contact.whatsapp_prefill", "Hi, I'm interested in Advanced Navigation products. Could you tell me more?")}
+                />
               </div>
             </motion.div>
           </div>

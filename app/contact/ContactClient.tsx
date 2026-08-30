@@ -1,8 +1,9 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import ContactForm from "@/components/ContactForm";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import type { ContentMap } from "@/lib/content";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -17,11 +18,15 @@ const slideRight = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
 };
 
-// Email placeholder — TBC, swap once confirmed
-const EMAIL = "info@advancednavigation.sk";
-const WA_MSG = "Hi, I'm interested in Advanced Navigation products. Could you tell me more?";
+export default function ContactClient({ content }: { content: ContentMap }) {
+  const c = (key: string, fallback = "") => content[key] || fallback;
 
-export default function ContactClient() {
+  const email = c("contact.info.email_value", "info@advancednavigation.sk");
+  const phone = c("contact.info.phone_value", "+421 949 225 542");
+  const phoneHref = `tel:+${phone.replace(/[^\d]/g, "")}`;
+  const waMsg = c("contact.whatsapp_prefill", "Hi, I'm interested in Advanced Navigation products. Could you tell me more?");
+  const waNumber = "421949225542";
+
   return (
     <>
       {/* Hero */}
@@ -44,13 +49,13 @@ export default function ContactClient() {
               variants={fadeUp}
               className="inline-block text-[#00B89F] text-xs font-semibold tracking-[0.25em] uppercase border border-[#00B89F]/30 px-3 py-1 rounded-full mb-5"
             >
-              Get In Touch
+              {c("contact.hero.eyebrow", "Get In Touch")}
             </motion.span>
             <motion.h1 variants={fadeUp} className="text-5xl sm:text-6xl font-bold text-white mb-5">
-              Contact Us
+              {c("contact.hero.heading", "Contact Us")}
             </motion.h1>
             <motion.p variants={fadeUp} className="text-xl text-white/60 max-w-lg leading-relaxed">
-              We&apos;re based in Bratislava, Slovakia and ready to help. Fill in the form below or reach out directly.
+              {c("contact.hero.subheadline", "We're based in Bratislava, Slovakia and ready to help. Fill in the form below or reach out directly.")}
             </motion.p>
           </motion.div>
         </div>
@@ -69,9 +74,9 @@ export default function ContactClient() {
               className="lg:col-span-2 space-y-8"
             >
               <div>
-                <h2 className="text-2xl font-bold text-[#1C2033] mb-2">Let&apos;s talk</h2>
+                <h2 className="text-2xl font-bold text-[#1C2033] mb-2">{c("contact.info.heading", "Let's talk")}</h2>
                 <p className="text-[#64748B] text-sm leading-relaxed">
-                  Fill in the form or reach out directly. Our team will respond promptly.
+                  {c("contact.info.subtext", "Fill in the form or reach out directly. Our team will respond promptly.")}
                 </p>
               </div>
 
@@ -84,9 +89,9 @@ export default function ContactClient() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-1">Location</p>
-                    <p className="text-[#1C2033] text-sm font-medium">Mrázová 11, Rača</p>
-                    <p className="text-[#1C2033] text-sm">831 06 Bratislava, Slovakia</p>
+                    <p className="text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-1">{c("contact.info.location_label", "Location")}</p>
+                    <p className="text-[#1C2033] text-sm font-medium">{c("contact.info.location_line1", "Mrázová 11, Rača")}</p>
+                    <p className="text-[#1C2033] text-sm">{c("contact.info.location_line2", "831 06 Bratislava, Slovakia")}</p>
                   </div>
                 </div>
 
@@ -98,9 +103,9 @@ export default function ContactClient() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-1">Email</p>
-                    <a href={`mailto:${EMAIL}`} className="text-[#1C2033] text-sm font-medium hover:text-[#1E5FBF] transition-colors">
-                      {EMAIL}
+                    <p className="text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-1">{c("contact.info.email_label", "Email")}</p>
+                    <a href={`mailto:${email}`} className="text-[#1C2033] text-sm font-medium hover:text-[#1E5FBF] transition-colors">
+                      {email}
                     </a>
                   </div>
                 </div>
@@ -113,9 +118,9 @@ export default function ContactClient() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-1">Phone</p>
-                    <a href="tel:+421949225542" className="text-[#1C2033] text-sm font-medium hover:text-[#1E5FBF] transition-colors">
-                      +421 949 225 542
+                    <p className="text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-1">{c("contact.info.phone_label", "Phone")}</p>
+                    <a href={phoneHref} className="text-[#1C2033] text-sm font-medium hover:text-[#1E5FBF] transition-colors">
+                      {phone}
                     </a>
                   </div>
                 </div>
@@ -128,14 +133,14 @@ export default function ContactClient() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-1">WhatsApp</p>
+                    <p className="text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-1">{c("contact.info.whatsapp_label", "WhatsApp")}</p>
                     <a
-                      href={`https://wa.me/421949225542?text=${encodeURIComponent(WA_MSG)}`}
+                      href={`https://wa.me/${waNumber}?text=${encodeURIComponent(waMsg)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[#1C2033] text-sm font-medium hover:text-[#25D366] transition-colors"
                     >
-                      +421 949 225 542
+                      {c("contact.info.whatsapp_value", "+421 949 225 542")}
                     </a>
                   </div>
                 </div>
@@ -152,7 +157,7 @@ export default function ContactClient() {
             >
               <div className="bg-white rounded-2xl border border-[#E2E8F0] p-8">
                 <ContactForm />
-                <WhatsAppButton message={WA_MSG} />
+                <WhatsAppButton message={waMsg} />
               </div>
             </motion.div>
           </div>

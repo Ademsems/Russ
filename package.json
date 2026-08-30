@@ -25,7 +25,9 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-phone-number-input": "^3.0.17",
+    "googleapis": "^176.0.0",
     "tailwindcss": "^4",
+    "tsx": "^4.23.13",
     "typescript": "^5"
   }
 }

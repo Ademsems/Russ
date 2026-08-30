@@ -1,5 +1,10 @@
 import HomeClient from "./HomeClient";
 import { getHeroImage } from "@/lib/getHeroImage";
+import { fetchContent, getContent, toFallbackMap } from "@/lib/content";
+import { SHEET_CSV_HOME } from "@/lib/config";
+import homeContent from "@/content/home.json";
+
+export const revalidate = 60;
 
 const SLUGS = [
   { slug: "hydrus", name: "Hydrus", href: "/products/hydrus", accent: "#00B89F" },
@@ -8,7 +13,9 @@ const SLUGS = [
   { slug: "gnss-compass", name: "GNSS Compass", href: "/products/gnss-compass", accent: "#1E5FBF" },
 ] as const;
 
-export default function HomePage() {
+export default async function HomePage() {
   const products = SLUGS.map((p) => ({ ...p, heroImage: getHeroImage(p.slug) }));
-  return <HomeClient products={products} />;
+  const sheetContent = await fetchContent(SHEET_CSV_HOME);
+  const content = getContent(sheetContent, toFallbackMap(homeContent));
+  return <HomeClient products={products} content={content} />;
 }

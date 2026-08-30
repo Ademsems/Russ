@@ -1,0 +1,19 @@
+[
+  { "key": "contact.meta.title", "section": "Page Metadata", "description": "Browser tab title / SEO title for the Contact page", "text": "Contact Us" },
+  { "key": "contact.meta.description", "section": "Page Metadata", "description": "SEO meta description for the Contact page", "text": "Get in touch with RKC Technology. We're based in Bratislava, Slovakia and ready to help with your Advanced Navigation technology needs." },
+  { "key": "contact.hero.eyebrow", "section": "Hero", "description": "Small uppercase eyebrow label above the hero H1", "text": "Get In Touch" },
+  { "key": "contact.hero.heading", "section": "Hero", "description": "Main H1 headline", "text": "Contact Us" },
+  { "key": "contact.hero.subheadline", "section": "Hero", "description": "Paragraph under the hero headline", "text": "We're based in Bratislava, Slovakia and ready to help. Fill in the form below or reach out directly." },
+  { "key": "contact.info.heading", "section": "Contact Info Panel", "description": "H2 heading of the left-hand info panel", "text": "Let's talk" },
+  { "key": "contact.info.subtext", "section": "Contact Info Panel", "description": "Paragraph under the info panel heading", "text": "Fill in the form or reach out directly. Our team will respond promptly." },
+  { "key": "contact.info.location_label", "section": "Contact Info Panel", "description": "Label for the location row", "text": "Location" },
+  { "key": "contact.info.location_line1", "section": "Contact Info Panel", "description": "Address line 1", "text": "Mrázová 11, Rača" },
+  { "key": "contact.info.location_line2", "section": "Contact Info Panel", "description": "Address line 2", "text": "831 06 Bratislava, Slovakia" },
+  { "key": "contact.info.email_label", "section": "Contact Info Panel", "description": "Label for the email row", "text": "Email" },
+  { "key": "contact.info.email_value", "section": "Contact Info Panel", "description": "Displayed email address", "text": "info@advancednavigation.sk" },
+  { "key": "contact.info.phone_label", "section": "Contact Info Panel", "description": "Label for the phone row", "text": "Phone" },
+  { "key": "contact.info.phone_value", "section": "Contact Info Panel", "description": "Displayed phone number", "text": "+421 949 225 542" },
+  { "key": "contact.info.whatsapp_label", "section": "Contact Info Panel", "description": "Label for the WhatsApp row", "text": "WhatsApp" },
+  { "key": "contact.info.whatsapp_value", "section": "Contact Info Panel", "description": "Displayed WhatsApp number", "text": "+421 949 225 542" },
+  { "key": "contact.whatsapp_prefill", "section": "Contact Info Panel", "description": "Pre-filled WhatsApp message text used by the WhatsApp link/button on this page", "text": "Hi, I'm interested in Advanced Navigation products. Could you tell me more?" }
+]
