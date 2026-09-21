@@ -52,6 +52,10 @@ something (e.g. i18n, linting), that is stated explicitly rather than assumed.
 - **googleapis** + **tsx** (devDependencies) — used **only** by the standalone
   content-review tooling in `scripts/populate-sheet.ts` (see §7). Not imported anywhere in
   the deployed Next.js app — do not treat these as app-runtime dependencies.
+- **@vercel/analytics** — official Vercel Web Analytics. `<Analytics />` (imported from
+  `@vercel/analytics/next`) is mounted once in `app/layout.tsx`, inside `<body>` alongside
+  `Navbar`/`Footer`/`CookieBanner`. No env vars or config needed — it activates automatically
+  when the app is deployed on Vercel and is a no-op elsewhere (safe in local dev).
 
 ### NOT present (do not assume these exist)
 - **No ESLint config and no `lint` script.** `package.json` scripts are only `dev`, `build`,
@@ -133,11 +137,11 @@ something (e.g. i18n, linting), that is stated explicitly rather than assumed.
 ```
 
 > **Also present locally, not part of the app:** `Email for Russ.txt` in the repo root holds
-> plaintext mailbox credentials for `info@advancednavigation.sk`. It is untracked (not in
-> `.gitignore` by name, but never staged/committed so far) — **never read its contents into a
-> commit, a doc, or any file that could be pushed.** If a `.gitignore` rule is ever wanted for
-> it specifically, add one, but do not rename or move it without asking — it may be the
-> client's only copy.
+> plaintext mailbox credentials for `info@advancednavigation.sk`. **Standing instruction from
+> the client (permanent, do not revisit): leave this file exactly as is.** Do not gitignore
+> it, rename it, move it, or otherwise touch it. Do not read its contents into a commit, a
+> doc, chat output, or any other file/message that could expose it — never share it, in any
+> form, under any circumstances. It stays untracked and unmodified indefinitely.
 
 ### Page composition pattern
 
