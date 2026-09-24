@@ -510,10 +510,16 @@ the cause of Search Console's "Page with redirect" notices.
   `SITE_URL`; **robots** points at `${SITE_URL}/sitemap.xml`.
 - **Legacy `/Solutions` redirect** (`next.config.ts`): `/solutions/:path*` → `/`, permanent.
   Next's `permanent: true` emits **308**, not 301 — Google treats them the same. Matching is
-  case-insensitive, so one rule covers `/Solutions` and `/solutions`, with or without a
-  trailing slash or sub-path (a second `/Solutions/...` rule would be dead code). A
-  trailing-slash URL may take two hops (Next's own slash-strip 308, then this one) — fine for
-  crawlers. Destination is `/` rather than a product page because the old page's content is
+  case-insensitive, and the generated pattern also matches the bare path and a trailing slash,
+  so this one rule covers `/Solutions`, `/solutions/`, and any sub-path (extra `/solutions`
+  or `/solutions/` rules were tested and are dead code).
+  **Single hop requires `skipTrailingSlashRedirect: true`** in `next.config.ts`. Without it,
+  Next runs its own internal `/x/ → /x` 308 *before* user redirects, so `/Solutions/` took two
+  hops (confirmed live, and locally even with an explicit `/solutions/` rule). Side effect: a
+  slashed URL like `/about/` now serves 200 instead of redirecting to `/about`; every page
+  declares a canonical, so this is harmless for SEO (verified: `/about/` emits the `/about`
+  canonical). Don't remove the flag without re-testing `/Solutions/`.
+  Destination is `/` rather than a product page because the old page's content is
   unknown; change it if the client says what `/Solutions` used to be.
 - After deploying: in Search Console, re-submit `https://www.advancednavigation.sk/sitemap.xml`
   and use "Validate fix" on the redirect / 404 issues. The property should be the www URL-prefix
