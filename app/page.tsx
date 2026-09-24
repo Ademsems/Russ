@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import HomeClient from "./HomeClient";
 import { getHeroImage } from "@/lib/getHeroImage";
 import { fetchContent, getContent, toFallbackMap } from "@/lib/content";
@@ -5,6 +6,10 @@ import { SHEET_CSV_HOME } from "@/lib/config";
 import homeContent from "@/content/home.json";
 
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const SLUGS = [
   { slug: "hydrus", name: "Hydrus", href: "/products/hydrus", accent: "#00B89F" },

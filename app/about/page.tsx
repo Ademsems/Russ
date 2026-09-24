@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "About Us",
   description:
     "RKC Technology is the authorised dealer for Advanced Navigation products in Slovakia, Czech Republic, Austria, and Hungary. Based in Bratislava.",
+  alternates: { canonical: "/about" },
 };
 
 export default async function AboutPage() {

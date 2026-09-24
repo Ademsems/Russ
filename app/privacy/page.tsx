@@ -9,6 +9,7 @@ export const revalidate = 60;
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "Privacy Policy for the RKC Technology website, operated by rkctechnology s. r. o.",
+  alternates: { canonical: "/privacy" },
 };
 
 /** "Label: Value | Label: Value | ..." → [{ label, value }] */

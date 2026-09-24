@@ -9,6 +9,7 @@ export const revalidate = 60;
 export const metadata: Metadata = {
   title: "Terms & Conditions",
   description: "Terms and Conditions for the RKC Technology website, operated by rkctechnology s. r. o.",
+  alternates: { canonical: "/terms" },
 };
 
 /** "Label: Value | Label: Value | ..." (as stored in the sheet) → [{ label, value }] */

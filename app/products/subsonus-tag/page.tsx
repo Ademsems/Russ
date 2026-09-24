@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: "Subsonus Tag — Subsea Transponder",
   description:
     "Subsonus Tag is an ultra-long-life underwater transponder by Advanced Navigation for reliable subsea tracking. Available from RKC Technology — authorised dealer for Central Europe.",
+  alternates: { canonical: "/products/subsonus-tag" },
 };
 
 export default async function SubsonusTagPage() {

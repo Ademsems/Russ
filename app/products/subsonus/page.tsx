@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: "Subsonus — Underwater Acoustic Positioning",
   description:
     "Subsonus is a compact USBL underwater acoustic positioning system by Advanced Navigation. Available from RKC Technology — authorised dealer for Slovakia, Czech Republic, Austria, and Hungary.",
+  alternates: { canonical: "/products/subsonus" },
 };
 
 export default async function SubsonusPage() {

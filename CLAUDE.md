@@ -118,6 +118,7 @@ something (e.g. i18n, linting), that is stated explicitly rather than assumed.
 │   ├── getHydrusVideos.ts         # BUILD-TIME: scans public/videos/hydrus/ for the 2 feature videos
 │   ├── content.ts                 # REQUEST-TIME: CSV parser + live Sheet fetcher — see §7
 │   ├── config.ts                  # REQUEST-TIME: NEXT_PUBLIC_SHEET_CSV_* env re-exports — see §7
+│   ├── site.ts                    # SITE_URL — the single canonical host constant — see §10
 │   └── utils.ts
 ├── public/
 │   ├── images/{hydrus,subsonus,subsonus-tag,gnss-compass}/  # numbered gallery + hero.*
@@ -130,7 +131,7 @@ something (e.g. i18n, linting), that is stated explicitly rather than assumed.
 │   └── populate-sheet.ts           # Pushes content/*.json into a Google Sheet — see §7
 ├── products content/              # Reference PDFs (official datasheets) — NOT served/deployed
 ├── google-credentials.json        # Google service-account key — gitignored, see §7. NOT in repo history.
-├── next.config.ts                 # Currently empty/default — no custom config set
+├── next.config.ts                 # Only custom config: the legacy /solutions 308 redirect — see §10
 ├── tsconfig.json
 ├── package.json
 └── CLAUDE.md                      # this file
@@ -484,6 +485,39 @@ All static (○, prerendered + ISR) except `/api/contact`, which is server-rende
 Verified in a browser: homepage, `/products/hydrus`, `/terms`, and `/privacy` render correctly
 with zero console errors and no mobile overflow at 375px, using the `content/*.json` fallback
 path (since the Sheet isn't publicly readable yet — see §7's "Known current gap").
+
+---
+
+## 10. Canonical Domain, Sitemap & Redirects (SEO)
+
+**Primary host: `https://www.advancednavigation.sk`.** This is what Vercel is configured to
+serve as Primary — verified by `curl -I`: the apex `advancednavigation.sk` (and `http://`)
+answers `308` → `https://www.advancednavigation.sk/`. Earlier, `sitemap.ts`, `robots.ts` and
+`metadataBase` all used the **apex**, so every sitemap URL was itself a redirect — that was
+the cause of Search Console's "Page with redirect" notices.
+
+- **`lib/site.ts`** exports `SITE_URL` (`NEXT_PUBLIC_SITE_URL` env override, default the www
+  host, trailing slash stripped). `app/layout.tsx` (`metadataBase`), `app/sitemap.ts` and
+  `app/robots.ts` all import it — never hardcode the host again. If the Vercel Primary domain
+  is ever switched, change the default in `lib/site.ts` (and `NEXT_PUBLIC_SITE_URL` in Vercel
+  if it is set there — a stale value there silently overrides the default).
+- **Canonicals are declared per page, not in the root layout.** Every page exports
+  `alternates: { canonical: "/<path>" }` in its own `metadata` (resolved against
+  `metadataBase`). Do **not** add `alternates.canonical` to `app/layout.tsx`: Next inherits it
+  into every page that doesn't override it, which would canonicalise any new page to `/` and
+  get it dropped from the index. **Any new route must declare its own canonical.**
+- **Sitemap** lists all 9 routes (home, 4 products, about, contact, terms, privacy) on
+  `SITE_URL`; **robots** points at `${SITE_URL}/sitemap.xml`.
+- **Legacy `/Solutions` redirect** (`next.config.ts`): `/solutions/:path*` → `/`, permanent.
+  Next's `permanent: true` emits **308**, not 301 — Google treats them the same. Matching is
+  case-insensitive, so one rule covers `/Solutions` and `/solutions`, with or without a
+  trailing slash or sub-path (a second `/Solutions/...` rule would be dead code). A
+  trailing-slash URL may take two hops (Next's own slash-strip 308, then this one) — fine for
+  crawlers. Destination is `/` rather than a product page because the old page's content is
+  unknown; change it if the client says what `/Solutions` used to be.
+- After deploying: in Search Console, re-submit `https://www.advancednavigation.sk/sitemap.xml`
+  and use "Validate fix" on the redirect / 404 issues. The property should be the www URL-prefix
+  or a Domain property.
 
 ---
 

@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Contact Us",
   description:
     "Get in touch with RKC Technology. We're based in Bratislava, Slovakia and ready to help with your Advanced Navigation technology needs.",
+  alternates: { canonical: "/contact" },
 };
 
 export default async function ContactPage() {
